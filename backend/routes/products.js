@@ -1,122 +1,190 @@
 const express = require('express');
-const router = express.Router();
-const multer = require('multer');
 const path = require('path');
-const fs = require('fs');
 const Product = require('../models/Product');
 const { protect, adminOnly } = require('../middleware/auth');
+const upload = require('../middleware/upload');
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const dir = path.join(__dirname, '../uploads');
-    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-    cb(null, dir);
-  },
-  filename: (req, file, cb) => {
-    const unique = Date.now() + '-' + Math.round(Math.random() * 1e9);
-    cb(null, 'product-' + unique + path.extname(file.originalname));
-  }
-});
-const upload = multer({ storage, limits: { fileSize: 5 * 1024 * 1024 } });
+const router = express.Router();
 
+// GET all products (public) with filters, search, pagination
 router.get('/', async (req, res) => {
   try {
-    const { category, search, featured, sort, page = 1, limit = 12, minPrice, maxPrice } = req.query;
+    const { page = 1, limit = 12, category, search, sort = '-createdAt', minPrice, maxPrice, featured, newArrival } = req.query;
     const query = { isActive: true };
-    if (category && category !== 'all') query.category = category;
+
+    if (category) query.category = category;
     if (featured === 'true') query.isFeatured = true;
+    if (newArrival === 'true') query.isNewArrival = true;
+    if (search) query.$text = { $search: search };
     if (minPrice || maxPrice) {
-      query.price = {};
-      if (minPrice) query.price.$gte = Number(minPrice);
-      if (maxPrice) query.price.$lte = Number(maxPrice);
+      query['price.selling'] = {};
+      if (minPrice) query['price.selling'].$gte = Number(minPrice);
+      if (maxPrice) query['price.selling'].$lte = Number(maxPrice);
     }
-    if (search) query.$or = [
-      { name: { $regex: search, $options: 'i' } },
-      { description: { $regex: search, $options: 'i' } },
-      { brand: { $regex: search, $options: 'i' } }
-    ];
-    const sortOptions = { 'price-asc': { price: 1 }, 'price-desc': { price: -1 }, 'newest': { createdAt: -1 }, 'rating': { rating: -1 }, 'name': { name: 1 } };
-    const sortBy = sortOptions[sort] || { createdAt: -1 };
+
     const skip = (Number(page) - 1) * Number(limit);
-    const total = await Product.countDocuments(query);
-    const products = await Product.find(query).sort(sortBy).skip(skip).limit(Number(limit));
-    res.json({ success: true, products, pagination: { page: Number(page), limit: Number(limit), total, pages: Math.ceil(total / Number(limit)) } });
-  } catch (err) { res.status(500).json({ success: false, message: err.message }); }
+    const [products, total] = await Promise.all([
+      Product.find(query).populate('category', 'name slug').sort(sort).skip(skip).limit(Number(limit)),
+      Product.countDocuments(query)
+    ]);
+
+    res.json({
+      success: true,
+      data: products,
+      pagination: { page: Number(page), limit: Number(limit), total, pages: Math.ceil(total / Number(limit)) }
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
 });
 
-router.get('/admin/stats', protect, adminOnly, async (req, res) => {
-  try {
-    const total = await Product.countDocuments();
-    const active = await Product.countDocuments({ isActive: true });
-    const lowStock = await Product.countDocuments({ stock: { $lt: 10 }, isActive: true });
-    const categories = await Product.aggregate([{ $group: { _id: '$category', count: { $sum: 1 } } }]);
-    res.json({ success: true, stats: { total, active, lowStock, categories } });
-  } catch (err) { res.status(500).json({ success: false, message: err.message }); }
-});
-
+// GET single product
 router.get('/:id', async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id);
-    if (!product) return res.status(404).json({ success: false, message: 'Product not found' });
-    res.json({ success: true, product });
-  } catch (err) { res.status(500).json({ success: false, message: err.message }); }
+    const product = await Product.findById(req.params.id).populate('category', 'name slug').populate('createdBy', 'name');
+    if (!product) return res.status(404).json({ success: false, message: 'Product not found.' });
+    await Product.findByIdAndUpdate(req.params.id, { $inc: { viewCount: 1 } });
+    res.json({ success: true, data: product });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
 });
 
-router.post('/', protect, adminOnly, upload.array('images', 5), async (req, res) => {
+// POST create product with image upload (admin)
+router.post('/', protect, adminOnly, upload.array('productImage', 5), async (req, res) => {
   try {
-    const { name, description, price, originalPrice, category, brand, sku, stock, unit, weight, tags, isFeatured } = req.body;
-    const images = req.files ? req.files.map(f => `/uploads/${f.filename}`) : [];
+    const { name, description, shortDescription, category, brand, price, stock, tags, features, sku } = req.body;
+
+    const images = req.files?.map((file, i) => ({
+      url: `/uploads/products/${file.filename}`,
+      alt: name,
+      isPrimary: i === 0
+    })) || [];
+
+    const priceData = typeof price === 'string' ? JSON.parse(price) : price;
+    const stockData = typeof stock === 'string' ? JSON.parse(stock) : stock;
+
+    const discountPercent = priceData.original > 0
+      ? Math.round(((priceData.original - priceData.selling) / priceData.original) * 100)
+      : 0;
+
     const product = await Product.create({
-      name, description, price: Number(price),
-      originalPrice: originalPrice ? Number(originalPrice) : undefined,
-      category, brand, sku, stock: Number(stock) || 0, unit, weight,
-      tags: tags ? tags.split(',').map(t => t.trim()) : [],
-      images, thumbnail: images[0] || '',
-      isFeatured: isFeatured === 'true',
-      priceHistory: [{ price: Number(price), updatedBy: req.user.name }]
+      name, description, shortDescription, category, brand, sku,
+      images,
+      price: { ...priceData, discountPercent },
+      stock: stockData,
+      tags: tags ? (typeof tags === 'string' ? tags.split(',').map(t => t.trim()) : tags) : [],
+      features: features ? (typeof features === 'string' ? JSON.parse(features) : features) : [],
+      priceHistory: [{ price: priceData.selling, changedBy: req.user._id }],
+      createdBy: req.user._id
     });
-    res.status(201).json({ success: true, product });
-  } catch (err) { res.status(500).json({ success: false, message: err.message }); }
+
+    const populated = await product.populate('category', 'name slug');
+    res.status(201).json({ success: true, message: 'Product created successfully!', data: populated });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
 });
 
-router.put('/:id', protect, adminOnly, upload.array('images', 5), async (req, res) => {
+// PUT update product (admin)
+router.put('/:id', protect, adminOnly, upload.array('productImage', 5), async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
-    if (!product) return res.status(404).json({ success: false, message: 'Product not found' });
+    if (!product) return res.status(404).json({ success: false, message: 'Product not found.' });
+
     const updates = { ...req.body };
-    if (updates.price && Number(updates.price) !== product.price) product.priceHistory.push({ price: Number(updates.price), updatedBy: req.user.name });
-    if (updates.tags) updates.tags = updates.tags.split(',').map(t => t.trim());
-    if (updates.price) updates.price = Number(updates.price);
-    if (updates.stock) updates.stock = Number(updates.stock);
-    if (updates.originalPrice) updates.originalPrice = Number(updates.originalPrice);
-    if (req.files && req.files.length > 0) {
-      const newImages = req.files.map(f => `/uploads/${f.filename}`);
-      updates.images = newImages; updates.thumbnail = newImages[0];
+    if (typeof updates.price === 'string') updates.price = JSON.parse(updates.price);
+    if (typeof updates.stock === 'string') updates.stock = JSON.parse(updates.stock);
+    if (typeof updates.tags === 'string') updates.tags = updates.tags.split(',').map(t => t.trim());
+
+    if (req.files?.length > 0) {
+      const newImages = req.files.map((file, i) => ({
+        url: `/uploads/products/${file.filename}`,
+        alt: updates.name || product.name,
+        isPrimary: i === 0 && product.images.length === 0
+      }));
+      updates.images = [...product.images, ...newImages];
     }
-    Object.assign(product, updates);
-    await product.save();
-    res.json({ success: true, product });
-  } catch (err) { res.status(500).json({ success: false, message: err.message }); }
+
+    const updated = await Product.findByIdAndUpdate(req.params.id, updates, { new: true, runValidators: true })
+      .populate('category', 'name slug');
+
+    res.json({ success: true, message: 'Product updated!', data: updated });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
 });
 
+// PATCH update price only (admin) — dedicated endpoint
 router.patch('/:id/price', protect, adminOnly, async (req, res) => {
   try {
-    const { price } = req.body;
+    const { sellingPrice, originalPrice } = req.body;
     const product = await Product.findById(req.params.id);
-    if (!product) return res.status(404).json({ success: false, message: 'Product not found' });
-    product.priceHistory.push({ price: Number(price), updatedBy: req.user.name });
-    product.price = Number(price);
+    if (!product) return res.status(404).json({ success: false, message: 'Product not found.' });
+
+    const newSelling = Number(sellingPrice);
+    const newOriginal = originalPrice ? Number(originalPrice) : product.price.original;
+    const discountPercent = newOriginal > 0 ? Math.round(((newOriginal - newSelling) / newOriginal) * 100) : 0;
+
+    product.price.selling = newSelling;
+    product.price.original = newOriginal;
+    product.price.discountPercent = discountPercent;
+    product.priceHistory.push({ price: newSelling, changedBy: req.user._id });
+
     await product.save();
-    res.json({ success: true, product, message: 'Price updated successfully' });
-  } catch (err) { res.status(500).json({ success: false, message: err.message }); }
+    res.json({ success: true, message: `Price updated to ₦${newSelling.toLocaleString()}`, data: product });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
 });
 
+// PATCH update stock (admin)
+router.patch('/:id/stock', protect, adminOnly, async (req, res) => {
+  try {
+    const { quantity, action } = req.body; // action: 'set', 'add', 'subtract'
+    const product = await Product.findById(req.params.id);
+    if (!product) return res.status(404).json({ success: false, message: 'Product not found.' });
+
+    if (action === 'add') product.stock.quantity += Number(quantity);
+    else if (action === 'subtract') product.stock.quantity = Math.max(0, product.stock.quantity - Number(quantity));
+    else product.stock.quantity = Number(quantity);
+
+    await product.save();
+    res.json({ success: true, message: 'Stock updated!', data: product });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+});
+
+// POST add review (customer)
+router.post('/:id/reviews', protect, async (req, res) => {
+  try {
+    const { rating, comment } = req.body;
+    const product = await Product.findById(req.params.id);
+    if (!product) return res.status(404).json({ success: false, message: 'Product not found.' });
+
+    const alreadyReviewed = product.reviews.find(r => r.user.toString() === req.user._id.toString());
+    if (alreadyReviewed) return res.status(400).json({ success: false, message: 'Already reviewed.' });
+
+    product.reviews.push({ user: req.user._id, name: req.user.name, rating: Number(rating), comment });
+    product.ratings.count = product.reviews.length;
+    product.ratings.average = product.reviews.reduce((acc, r) => acc + r.rating, 0) / product.reviews.length;
+
+    await product.save();
+    res.status(201).json({ success: true, message: 'Review added!', data: product });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+});
+
+// DELETE product (admin)
 router.delete('/:id', protect, adminOnly, async (req, res) => {
   try {
-    const product = await Product.findByIdAndDelete(req.params.id);
-    if (!product) return res.status(404).json({ success: false, message: 'Product not found' });
-    res.json({ success: true, message: 'Product deleted' });
-  } catch (err) { res.status(500).json({ success: false, message: err.message }); }
+    await Product.findByIdAndUpdate(req.params.id, { isActive: false });
+    res.json({ success: true, message: 'Product removed from store.' });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
 });
 
 module.exports = router;
