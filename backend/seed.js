@@ -10,7 +10,7 @@ const User = require('./models/User');
 const Category = require('./models/Category');
 const Product = require('./models/Product');
 
-const MONGO_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/volahub';
+const MONGO_URI = process.env.MONGODB_URI || 'mongodb+srv://<soulcitytech>:<08098448608@Ab>@cluster0.kazbhoi.mongodb.net/?appName=Cluster0';
 
 const categories = [
   { name: 'Beverages', slug: 'beverages', icon: '🥤', description: 'Drinks, juices, water, carbonated drinks' },
