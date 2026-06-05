@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors({
   origin: [
-    'https://volahub-store.onrender.com',
+    'https://volahub.onrender.com',
     'http://localhost:5500',
     'http://127.0.0.1:5500'
   ],
