@@ -29,7 +29,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://soulcitytech:08098448608@cluster0.kazbhoi.mongodb.net/?appName=Cluster0')
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://soulcitytech:08098448608@cluster0.kazbhoi.mongodb.net/?appName=Cluster0")
   .then(() => console.log('✅ MongoDB connected to VolaHub database'))
   .catch(err => console.error('❌ MongoDB connection error:', err));
 
