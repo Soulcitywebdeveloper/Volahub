@@ -5,7 +5,7 @@ const { protect } = require('../middleware/auth');
 
 const router = express.Router();
 
-const signToken = (id) => jwt.sign({ id }, process.env.JWT_SECRET || 'volahub_secret', {
+const signToken = (id) => jwt.sign({ id }, process.env.JWT_SECRET || 'volahub', {
   expiresIn: process.env.JWT_EXPIRES_IN || '7d'
 });
 
