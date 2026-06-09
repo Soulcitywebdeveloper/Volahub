@@ -2,10 +2,11 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const { protect } = require('../middleware/auth');
+const { sendWelcomeEmail } = require('../utils/emailService');
 
 const router = express.Router();
 
-const signToken = (id) => jwt.sign({ id }, process.env.JWT_SECRET || 'volahub', {
+const signToken = (id) => jwt.sign({ id }, process.env.JWT_SECRET || 'volahub_secret', {
   expiresIn: process.env.JWT_EXPIRES_IN || '7d'
 });
 
@@ -18,6 +19,9 @@ router.post('/register', async (req, res) => {
 
     const user = await User.create({ name, email, password, phone });
     const token = signToken(user._id);
+
+    // Send welcome email (non-blocking)
+    sendWelcomeEmail(user).catch(err => console.error('Welcome email error:', err));
 
     res.status(201).json({ success: true, message: 'Account created successfully!', token, user });
   } catch (error) {
@@ -77,6 +81,22 @@ router.post('/create-admin', protect, async (req, res) => {
 });
 
 // Seed first superadmin (REMOVE IN PRODUCTION)
+router.post('/seed-superadmin', async (req, res) => {
+  try {
+    const count = await User.countDocuments({ role: 'superadmin' });
+    if (count > 0) return res.status(400).json({ success: false, message: 'Superadmin already exists.' });
 
+    const admin = await User.create({
+      name: 'VolaHub Admin',
+      email: 'admin@volahub.com',
+      password: 'VolaHub@2024',
+      role: 'superadmin'
+    });
+    const token = signToken(admin._id);
+    res.status(201).json({ success: true, message: 'Superadmin created!', token, user: admin });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+});
 
 module.exports = router;
