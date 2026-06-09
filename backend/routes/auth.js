@@ -77,22 +77,6 @@ router.post('/create-admin', protect, async (req, res) => {
 });
 
 // Seed first superadmin (REMOVE IN PRODUCTION)
-router.post('/seed-superadmin', async (req, res) => {
-  try {
-    const count = await User.countDocuments({ role: 'superadmin' });
-    if (count > 0) return res.status(400).json({ success: false, message: 'Superadmin already exists.' });
 
-    const admin = await User.create({
-      name: 'VolaHub Admin',
-      email: 'admin@volahub.com',
-      password: 'VolaHub@2024',
-      role: 'superadmin'
-    });
-    const token = signToken(admin._id);
-    res.status(201).json({ success: true, message: 'Superadmin created!', token, user: admin });
-  } catch (error) {
-    res.status(400).json({ success: false, message: error.message });
-  }
-});
 
 module.exports = router;
