@@ -67,21 +67,7 @@ python3 -m http.server 3000
 # Open http://localhost:3000
 ```
 
-### 4. Seed Initial Admin
 
-After the backend is running, make this one-time POST request:
-
-```bash
-curl -X POST http://localhost:5000/api/auth/seed-superadmin
-```
-
-**Default Admin Credentials:**
-- Email: `admin@volahub.com`
-- Password: `VolaHub@2024`
-
-> ⚠️ Remove the `/seed-superadmin` route from `auth.js` in production!
-
----
 
 ## 🌐 API Reference
 
