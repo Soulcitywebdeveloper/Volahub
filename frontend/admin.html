@@ -531,7 +531,7 @@ textarea.form-input { resize: vertical; min-height: 90px; }
 <div class="toast-container" id="toastContainer"></div>
 
 <script>
-const API = 'https://volahub-api.onrender.com/api';
+const API = 'http://localhost:5000/api';
 let token = localStorage.getItem('volahub_token') || '';
 let currentUser = JSON.parse(localStorage.getItem('volahub_user') || 'null');
 let allProducts = [];

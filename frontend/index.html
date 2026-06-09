@@ -1165,8 +1165,8 @@ body {
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
-          <li><a href="#">About VolaHub</a></li>
-          <li><a href="#">Careers</a></li>
+          <li><a href="about.html">About VolaHub</a></li>
+          <li><a href="mailto:careers@volahub.com">Careers</a></li>
           <li><a href="#">Press</a></li>
           <li><a href="#">Partners</a></li>
         </ul>
@@ -1261,7 +1261,7 @@ body {
 <div class="toast-container" id="toastContainer"></div>
 
 <script>
-const API = 'https://volahub-api.onrender.com/api';
+const API = 'http://localhost:5000/api';
 let cart = JSON.parse(localStorage.getItem('volahub_cart') || '[]');
 let currentUser = JSON.parse(localStorage.getItem('volahub_user') || 'null');
 let token = localStorage.getItem('volahub_token') || '';
