@@ -7,96 +7,93 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <style>
-:root {
-  --green-50:#f0faf3;--green-100:#d1f0da;--green-200:#a3e0b6;
-  --green-400:#3db065;--green-500:#2a9050;--green-600:#1f7a3e;
-  --gray-50:#f8faf8;--gray-100:#eef2ee;--gray-200:#d4ddd4;
-  --gray-400:#8a9e8a;--gray-600:#4a5e4a;--gray-800:#1e281e;
+:root{
+  --g50:#f0faf3;--g100:#d1f0da;--g200:#a3e0b6;--g400:#3db065;--g500:#2a9050;--g600:#1f7a3e;--g700:#165c2e;
+  --gray50:#f8faf8;--gray100:#eef2ee;--gray200:#d4ddd4;--gray400:#8a9e8a;--gray600:#4a5e4a;--gray800:#1e281e;
   --red:#ef4444;--amber:#f59e0b;
-  --font-display:'Syne',sans-serif;--font-body:'Plus Jakarta Sans',sans-serif;
-  --radius:12px;--radius-lg:20px;
+  --fd:'Syne',sans-serif;--fb:'Plus Jakarta Sans',sans-serif;--r:12px;--rl:20px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:var(--font-body);background:var(--gray-50);color:var(--gray-800);}
-
-.navbar{background:white;border-bottom:1px solid var(--gray-100);padding:0 5%;position:sticky;top:0;z-index:100;}
-.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
-.logo{font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--green-600);text-decoration:none;}
-.logo span{color:var(--green-400);}
-.back-link{display:flex;align-items:center;gap:6px;color:var(--gray-600);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s;}
-.back-link:hover{color:var(--green-600);}
-
+body{font-family:var(--fb);background:var(--gray50);color:var(--gray800);}
+.navbar{background:white;border-bottom:1px solid var(--gray100);padding:0 5%;}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-family:var(--fd);font-size:24px;font-weight:800;color:var(--g600);text-decoration:none;letter-spacing:-1px;}
+.logo span{color:var(--g400);}
+.back-link{display:flex;align-items:center;gap:6px;color:var(--gray600);text-decoration:none;font-size:14px;font-weight:600;padding:7px 16px;border-radius:50px;border:1.5px solid var(--gray200);transition:all .2s;}
+.back-link:hover{border-color:var(--g400);color:var(--g600);}
 .main{max-width:1100px;margin:0 auto;padding:40px 5%;}
-.page-title{font-family:var(--font-display);font-size:28px;font-weight:800;margin-bottom:32px;letter-spacing:-0.5px;}
-.page-title span{color:var(--green-500);}
-
+.page-title{font-family:var(--fd);font-size:28px;font-weight:800;margin-bottom:32px;letter-spacing:-.5px;}
+.page-title span{color:var(--g500);}
 .checkout-grid{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:start;}
 
-/* FORM PANELS */
-.panel{background:white;border-radius:var(--radius-lg);border:1px solid var(--gray-100);overflow:hidden;margin-bottom:20px;}
-.panel-header{padding:18px 22px;border-bottom:1px solid var(--gray-100);display:flex;align-items:center;gap:10px;}
-.panel-num{width:28px;height:28px;border-radius:50%;background:var(--green-500);color:white;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.panel-title{font-family:var(--font-display);font-size:16px;font-weight:800;}
+/* PANELS */
+.panel{background:white;border-radius:var(--rl);border:1px solid var(--gray100);overflow:hidden;margin-bottom:20px;}
+.panel-hdr{padding:18px 22px;border-bottom:1px solid var(--gray100);display:flex;align-items:center;gap:10px;}
+.panel-num{width:28px;height:28px;border-radius:50%;background:var(--g500);color:white;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.panel-title{font-family:var(--fd);font-size:16px;font-weight:800;}
 .panel-body{padding:22px;}
-
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.form-group{display:flex;flex-direction:column;gap:6px;}
-.form-group.full{grid-column:span 2;}
-.form-label{font-size:12px;font-weight:700;color:var(--gray-600);text-transform:uppercase;letter-spacing:.4px;}
-.form-input{padding:10px 14px;border:1.5px solid var(--gray-200);border-radius:10px;font-family:var(--font-body);font-size:14px;outline:none;transition:border-color .2s;color:var(--gray-800);}
-.form-input:focus{border-color:var(--green-400);box-shadow:0 0 0 3px rgba(61,176,101,.1);}
+.fg{display:flex;flex-direction:column;gap:6px;}
+.fg.full{grid-column:span 2;}
+.fl{font-size:12px;font-weight:700;color:var(--gray600);text-transform:uppercase;letter-spacing:.4px;}
+.fi{padding:10px 14px;border:1.5px solid var(--gray200);border-radius:10px;font-family:var(--fb);font-size:14px;outline:none;transition:all .2s;color:var(--gray800);width:100%;}
+.fi:focus{border-color:var(--g400);box-shadow:0 0 0 3px rgba(61,176,101,.1);}
 
 /* PAYMENT OPTIONS */
-.payment-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.pay-opt{border:2px solid var(--gray-200);border-radius:var(--radius);padding:14px 16px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:10px;}
-.pay-opt:hover{border-color:var(--green-400);}
-.pay-opt.selected{border-color:var(--green-500);background:var(--green-50);}
+.pay-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.pay-opt{border:2px solid var(--gray200);border-radius:var(--r);padding:14px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:10px;}
+.pay-opt:hover{border-color:var(--g400);}
+.pay-opt.selected{border-color:var(--g500);background:var(--g50);}
 .pay-opt .pay-icon{font-size:20px;}
 .pay-opt .pay-name{font-size:13px;font-weight:700;}
-.pay-opt .pay-desc{font-size:11px;color:var(--gray-400);}
+.pay-opt .pay-desc{font-size:11px;color:var(--gray400);}
 
 /* ORDER SUMMARY */
-.summary-panel{background:white;border-radius:var(--radius-lg);border:1px solid var(--gray-100);position:sticky;top:84px;}
-.summary-header{padding:18px 22px;border-bottom:1px solid var(--gray-100);}
-.summary-header h2{font-family:var(--font-display);font-size:16px;font-weight:800;}
+.summary-panel{background:white;border-radius:var(--rl);border:1px solid var(--gray100);position:sticky;top:20px;}
+.summary-hdr{padding:18px 22px;border-bottom:1px solid var(--gray100);}
+.summary-hdr h2{font-family:var(--fd);font-size:16px;font-weight:800;}
 .summary-items{padding:16px 22px;max-height:320px;overflow-y:auto;}
-.summary-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--gray-50);align-items:center;}
-.summary-item:last-child{border-bottom:none;}
-.s-img{width:48px;height:48px;border-radius:8px;background:var(--gray-50);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;overflow:hidden;}
-.s-img img{width:100%;height:100%;object-fit:cover;border-radius:8px;}
-.s-name{font-size:13px;font-weight:600;flex:1;line-height:1.3;}
-.s-qty{font-size:12px;color:var(--gray-400);}
-.s-price{font-size:13px;font-weight:700;color:var(--green-600);white-space:nowrap;}
-.summary-totals{padding:16px 22px;border-top:1px solid var(--gray-100);}
-.tot-row{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;color:var(--gray-600);}
-.tot-row.total{font-weight:800;font-size:18px;color:var(--gray-800);border-top:1.5px solid var(--gray-200);padding-top:12px;margin-top:6px;}
-.tot-row.free{color:var(--green-500);}
+.si-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--gray50);align-items:center;}
+.si-item:last-child{border-bottom:none;}
+.si-img{width:48px;height:48px;border-radius:8px;background:var(--gray50);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;overflow:hidden;}
+.si-img img{width:100%;height:100%;object-fit:cover;border-radius:8px;}
+.si-name{font-size:13px;font-weight:600;flex:1;}
+.si-qty{font-size:12px;color:var(--gray400);}
+.si-price{font-size:13px;font-weight:700;color:var(--g600);white-space:nowrap;}
+.summary-totals{padding:16px 22px;border-top:1px solid var(--gray100);}
+.tot-row{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;color:var(--gray600);}
+.tot-row.total{font-weight:800;font-size:18px;color:var(--gray800);border-top:1.5px solid var(--gray200);padding-top:12px;margin-top:8px;}
+.place-btn{width:100%;padding:15px;background:var(--g500);color:white;border:none;border-radius:var(--r);font-family:var(--fb);font-size:15px;font-weight:800;cursor:pointer;transition:all .2s;margin-top:16px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.place-btn:hover{background:var(--g600);transform:translateY(-1px);}
+.place-btn:disabled{background:var(--gray200);color:var(--gray400);cursor:not-allowed;transform:none;}
+.secure-note{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray400);margin-top:12px;justify-content:center;}
 
-.place-order-btn{width:100%;padding:15px;background:var(--green-500);color:white;border:none;border-radius:var(--radius);font-family:var(--font-body);font-size:15px;font-weight:800;cursor:pointer;transition:all .2s;margin-top:16px;display:flex;align-items:center;justify-content:center;gap:8px;}
-.place-order-btn:hover{background:var(--green-600);transform:translateY(-1px);}
-.place-order-btn:disabled{background:var(--gray-200);color:var(--gray-400);cursor:not-allowed;transform:none;}
+/* NOT LOGGED IN BANNER */
+.auth-banner{background:#fef3c7;border:1.5px solid #fcd34d;border-radius:var(--r);padding:14px 18px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.auth-banner p{font-size:14px;font-weight:600;color:#92400e;}
+.auth-banner a{padding:8px 18px;background:var(--g500);color:white;border-radius:50px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;}
 
-.security-note{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-400);margin-top:12px;justify-content:center;}
-
-/* SUCCESS STATE */
-.success-screen{display:none;text-align:center;padding:60px 20px;}
-.success-screen .check{font-size:64px;margin-bottom:20px;}
-.success-screen h2{font-family:var(--font-display);font-size:28px;font-weight:800;color:var(--gray-800);margin-bottom:10px;}
-.success-screen p{color:var(--gray-400);font-size:15px;margin-bottom:28px;}
-.success-screen .order-num{background:var(--green-50);border:1.5px solid var(--green-200);border-radius:var(--radius);padding:14px 24px;display:inline-block;margin-bottom:28px;}
-.success-screen .order-num span{font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--green-600);}
-
-.btn-link{padding:12px 28px;background:var(--green-500);color:white;border:none;border-radius:var(--radius);font-family:var(--font-body);font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;transition:background .2s;margin:4px;}
-.btn-link.ghost{background:transparent;border:2px solid var(--gray-200);color:var(--gray-600);}
-.btn-link:hover{background:var(--green-600);}
-.btn-link.ghost:hover{background:var(--gray-100);}
+/* SUCCESS */
+.success-screen{display:none;text-align:center;padding:60px 20px;max-width:540px;margin:0 auto;}
+.success-screen .check{font-size:72px;margin-bottom:20px;}
+.success-screen h2{font-family:var(--fd);font-size:32px;font-weight:800;margin-bottom:10px;}
+.success-screen p{color:var(--gray400);font-size:15px;margin-bottom:24px;line-height:1.7;}
+.order-num-box{background:var(--g50);border:1.5px solid var(--g200);border-radius:var(--r);padding:16px 28px;display:inline-block;margin-bottom:28px;}
+.order-num-box span{font-family:var(--fd);font-size:24px;font-weight:800;color:var(--g600);}
+.suc-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.suc-btn{padding:12px 28px;background:var(--g500);color:white;border:none;border-radius:50px;font-family:var(--fb);font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;transition:background .2s;}
+.suc-btn:hover{background:var(--g600);}
+.suc-btn.ghost{background:transparent;border:2px solid var(--gray200);color:var(--gray600);}
+.suc-btn.ghost:hover{background:var(--gray100);}
 
 /* TOAST */
-.toast-container{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:8px;}
-.toast{background:var(--gray-800);color:white;padding:12px 18px;border-radius:10px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(0,0,0,.3);transform:translateX(120px);opacity:0;transition:all .3s;}
+.toast-wrap{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:8px;}
+.toast{background:var(--gray800);color:white;padding:12px 18px;border-radius:10px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(0,0,0,.3);transform:translateX(120px);opacity:0;transition:all .3s;}
 .toast.show{transform:translateX(0);opacity:1;}
+.toast.error{border-left:3px solid var(--red);}
+.toast.success{border-left:3px solid var(--g400);}
 
-@media(max-width:768px){.checkout-grid{grid-template-columns:1fr;}.payment-options{grid-template-columns:1fr;}.form-grid{grid-template-columns:1fr;}.form-group.full{grid-column:span 1;}.summary-panel{position:static;}}
+@media(max-width:768px){.checkout-grid{grid-template-columns:1fr;}.pay-opts{grid-template-columns:1fr;}.form-grid{grid-template-columns:1fr;}.fg.full{grid-column:span 1;}.summary-panel{position:static;}}
 </style>
 </head>
 <body>
@@ -109,214 +106,190 @@ body{font-family:var(--font-body);background:var(--gray-50);color:var(--gray-800
 </nav>
 
 <div class="main">
+
   <div id="checkoutView">
     <h1 class="page-title">Secure <span>Checkout</span></h1>
 
-    <div class="checkout-grid">
+    <!-- SHOWN IF NOT LOGGED IN -->
+    <div class="auth-banner" id="authBanner" style="display:none;">
+      <p>⚠️ You need to sign in before placing an order.</p>
+      <a href="index.html">Sign In on Store →</a>
+    </div>
+
+    <div class="checkout-grid" id="checkoutGrid">
       <div class="checkout-left">
 
-        <!-- CONTACT INFO -->
+        <!-- CONTACT -->
         <div class="panel">
-          <div class="panel-header">
-            <div class="panel-num">1</div>
-            <div class="panel-title">Contact Information</div>
-          </div>
+          <div class="panel-hdr"><div class="panel-num">1</div><div class="panel-title">Contact Information</div></div>
           <div class="panel-body">
             <div class="form-grid">
-              <div class="form-group">
-                <label class="form-label">Full Name</label>
-                <input type="text" class="form-input" id="fullName" placeholder="John Doe">
-              </div>
-              <div class="form-group">
-                <label class="form-label">Phone Number</label>
-                <input type="tel" class="form-input" id="phone" placeholder="0801 234 5678">
-              </div>
-              <div class="form-group full">
-                <label class="form-label">Email Address</label>
-                <input type="email" class="form-input" id="email" placeholder="john@example.com">
-              </div>
+              <div class="fg"><label class="fl">Full Name</label><input type="text" class="fi" id="fullName" placeholder="John Doe"></div>
+              <div class="fg"><label class="fl">Phone Number</label><input type="tel" class="fi" id="phone" placeholder="08012345678"></div>
+              <div class="fg full"><label class="fl">Email Address</label><input type="email" class="fi" id="email" placeholder="john@example.com"></div>
             </div>
           </div>
         </div>
 
-        <!-- DELIVERY ADDRESS -->
+        <!-- ADDRESS -->
         <div class="panel">
-          <div class="panel-header">
-            <div class="panel-num">2</div>
-            <div class="panel-title">Delivery Address</div>
-          </div>
+          <div class="panel-hdr"><div class="panel-num">2</div><div class="panel-title">Delivery Address</div></div>
           <div class="panel-body">
             <div class="form-grid">
-              <div class="form-group full">
-                <label class="form-label">Street Address</label>
-                <input type="text" class="form-input" id="street" placeholder="14 Adeola Odeku Street">
-              </div>
-              <div class="form-group">
-                <label class="form-label">City</label>
-                <input type="text" class="form-input" id="city" placeholder="Lagos">
-              </div>
-              <div class="form-group">
-                <label class="form-label">State</label>
-                <select class="form-input" id="state">
+              <div class="fg full"><label class="fl">Street Address</label><input type="text" class="fi" id="street" placeholder="14 Adeola Odeku Street, VI"></div>
+              <div class="fg"><label class="fl">City</label><input type="text" class="fi" id="city" placeholder="Lagos"></div>
+              <div class="fg"><label class="fl">State</label>
+                <select class="fi" id="state">
                   <option>Lagos</option><option>Abuja</option><option>Rivers</option><option>Kano</option>
                   <option>Oyo</option><option>Anambra</option><option>Delta</option><option>Edo</option>
                   <option>Kaduna</option><option>Enugu</option><option>Imo</option><option>Cross River</option>
-                  <option>Other</option>
+                  <option>Ogun</option><option>Ondo</option><option>Other</option>
                 </select>
               </div>
-              <div class="form-group">
-                <label class="form-label">ZIP / Postcode</label>
-                <input type="text" class="form-input" id="zipCode" placeholder="100001">
-              </div>
-              <div class="form-group">
-                <label class="form-label">Country</label>
-                <input type="text" class="form-input" value="Nigeria" readonly style="background:var(--gray-50);">
-              </div>
+              <div class="fg"><label class="fl">ZIP / Postcode</label><input type="text" class="fi" id="zipCode" placeholder="100001"></div>
+              <div class="fg"><label class="fl">Country</label><input type="text" class="fi" value="Nigeria" readonly style="background:var(--gray50);"></div>
             </div>
           </div>
         </div>
 
         <!-- PAYMENT -->
         <div class="panel">
-          <div class="panel-header">
-            <div class="panel-num">3</div>
-            <div class="panel-title">Payment Method</div>
-          </div>
+          <div class="panel-hdr"><div class="panel-num">3</div><div class="panel-title">Payment Method</div></div>
           <div class="panel-body">
-            <div class="payment-options">
-              <div class="pay-opt selected" onclick="selectPayment('card', this)">
-                <div class="pay-icon">💳</div>
-                <div>
-                  <div class="pay-name">Card Payment</div>
-                  <div class="pay-desc">Visa, Mastercard, Verve</div>
-                </div>
+            <div class="pay-opts">
+              <div class="pay-opt selected" onclick="selectPayment('card',this)">
+                <div class="pay-icon">💳</div><div><div class="pay-name">Card Payment</div><div class="pay-desc">Visa, Mastercard, Verve</div></div>
               </div>
-              <div class="pay-opt" onclick="selectPayment('transfer', this)">
-                <div class="pay-icon">🏦</div>
-                <div>
-                  <div class="pay-name">Bank Transfer</div>
-                  <div class="pay-desc">Direct bank transfer</div>
-                </div>
+              <div class="pay-opt" onclick="selectPayment('transfer',this)">
+                <div class="pay-icon">🏦</div><div><div class="pay-name">Bank Transfer</div><div class="pay-desc">Direct bank transfer</div></div>
               </div>
-              <div class="pay-opt" onclick="selectPayment('cash', this)">
-                <div class="pay-icon">💵</div>
-                <div>
-                  <div class="pay-name">Pay on Delivery</div>
-                  <div class="pay-desc">Cash or POS on delivery</div>
-                </div>
+              <div class="pay-opt" onclick="selectPayment('cash',this)">
+                <div class="pay-icon">💵</div><div><div class="pay-name">Pay on Delivery</div><div class="pay-desc">Cash or POS on delivery</div></div>
               </div>
-              <div class="pay-opt" onclick="selectPayment('wallet', this)">
-                <div class="pay-icon">📱</div>
-                <div>
-                  <div class="pay-name">Mobile Money</div>
-                  <div class="pay-desc">Opay, Palmpay, etc.</div>
-                </div>
+              <div class="pay-opt" onclick="selectPayment('wallet',this)">
+                <div class="pay-icon">📱</div><div><div class="pay-name">Mobile Money</div><div class="pay-desc">Opay, Palmpay, etc.</div></div>
               </div>
             </div>
             <input type="hidden" id="paymentMethod" value="card">
+            <!-- Card fields shown only for card payment -->
             <div id="cardFields" style="margin-top:16px;">
               <div class="form-grid">
-                <div class="form-group full">
-                  <label class="form-label">Card Number</label>
-                  <input type="text" class="form-input" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)">
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Expiry Date</label>
-                  <input type="text" class="form-input" id="cardExpiry" placeholder="MM/YY" maxlength="5" oninput="formatExpiry(this)">
-                </div>
-                <div class="form-group">
-                  <label class="form-label">CVV</label>
-                  <input type="text" class="form-input" id="cardCvv" placeholder="123" maxlength="4">
-                </div>
+                <div class="fg full"><label class="fl">Card Number</label><input type="text" class="fi" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)"></div>
+                <div class="fg"><label class="fl">Expiry Date</label><input type="text" class="fi" id="cardExpiry" placeholder="MM/YY" maxlength="5" oninput="formatExpiry(this)"></div>
+                <div class="fg"><label class="fl">CVV</label><input type="text" class="fi" id="cardCvv" placeholder="123" maxlength="4"></div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="form-group" style="margin-bottom:0;">
-          <label class="form-label" style="margin-bottom:6px;">Order Note (optional)</label>
-          <textarea class="form-input" id="orderNote" rows="3" placeholder="Any special delivery instructions..."></textarea>
+        <!-- ORDER NOTE -->
+        <div class="fg">
+          <label class="fl">Order Note (optional)</label>
+          <textarea class="fi" id="orderNote" rows="3" placeholder="Any special delivery instructions..."></textarea>
         </div>
 
-      </div>
+      </div><!-- /checkout-left -->
 
       <!-- ORDER SUMMARY -->
       <div class="summary-panel">
-        <div class="summary-header">
-          <h2>Order Summary (<span id="itemCount">0</span> items)</h2>
-        </div>
+        <div class="summary-hdr"><h2>Order Summary (<span id="itemCount">0</span> items)</h2></div>
         <div class="summary-items" id="summaryItems"></div>
         <div class="summary-totals">
           <div class="tot-row"><span>Subtotal</span><span id="sumSubtotal">₦0</span></div>
-          <div class="tot-row" id="shippingRow"><span>Shipping</span><span id="sumShipping">₦1,500</span></div>
+          <div class="tot-row"><span>Shipping</span><span id="sumShipping">₦1,500</span></div>
           <div class="tot-row"><span>VAT (7.5%)</span><span id="sumTax">₦0</span></div>
           <div class="tot-row total"><span>Total</span><span id="sumTotal">₦0</span></div>
-          <button class="place-order-btn" id="placeOrderBtn" onclick="placeOrder()">
-            🔒 Place Order
-          </button>
-          <div class="security-note">🔒 256-bit SSL encrypted and secure</div>
+          <button class="place-btn" id="placeOrderBtn" onclick="placeOrder()">🔒 Place Order</button>
+          <div class="secure-note">🔒 256-bit SSL encrypted & secure</div>
         </div>
       </div>
-    </div>
-  </div>
+
+    </div><!-- /checkout-grid -->
+  </div><!-- /checkoutView -->
 
   <!-- SUCCESS SCREEN -->
   <div class="success-screen" id="successScreen">
     <div class="check">🎉</div>
     <h2>Order Placed Successfully!</h2>
-    <p>Thank you for shopping with VolaHub. Your order is confirmed and will be processed shortly.</p>
-    <div class="order-num"><span id="successOrderNum">#VH-000001</span></div>
-    <br>
-    <a class="btn-link" href="index.html">Continue Shopping</a>
-    <a class="btn-link ghost" href="orders.html">Track My Order</a>
+    <p>Thank you for shopping with VolaHub! Your order is confirmed and will be processed shortly. You'll receive an email confirmation soon.</p>
+    <div class="order-num-box"><span id="successOrderNum">#VH-000001</span></div>
+    <div class="suc-btns">
+      <a class="suc-btn" href="index.html">Continue Shopping</a>
+      <a class="suc-btn ghost" href="orders.html">Track My Order →</a>
+    </div>
   </div>
+
 </div>
 
-<div class="toast-container" id="toastContainer"></div>
+<div class="toast-wrap" id="toastWrap"></div>
 
 <script>
-const API = 'http://localhost:5000/api';
-let cart = JSON.parse(localStorage.getItem('volahub_cart') || '[]');
-let currentUser = JSON.parse(localStorage.getItem('volahub_user') || 'null');
-let token = localStorage.getItem('volahub_token') || '';
-let selectedPayment = 'card';
+// ─── CONFIG ───────────────────────────────────────────────────────────────────
+const API = 'https://volahub-api.onrender.com/api';
 
-// Redirect if not logged in or cart empty
-if (!currentUser) { window.location.href = 'index.html'; }
-if (!cart.length) { window.location.href = 'index.html'; }
+// ─── READ AUTH — supports BOTH old and new localStorage keys ─────────────────
+const token = localStorage.getItem('vh_token') || localStorage.getItem('volahub_token') || '';
+const user  = JSON.parse(
+  localStorage.getItem('vh_user') ||
+  localStorage.getItem('volahub_user') ||
+  'null'
+);
+const cart  = JSON.parse(localStorage.getItem('vh_cart') || localStorage.getItem('volahub_cart') || '[]');
 
-// Pre-fill user info
-document.getElementById('fullName').value = currentUser?.name || '';
-document.getElementById('email').value = currentUser?.email || '';
-document.getElementById('phone').value = currentUser?.phone || '';
+// ─── NORMALIZE keys ───────────────────────────────────────────────────────────
+if (token) localStorage.setItem('vh_token', token);
+if (user)  localStorage.setItem('vh_user', JSON.stringify(user));
+if (cart.length) localStorage.setItem('vh_cart', JSON.stringify(cart));
 
-// Render cart summary
+// ─── REDIRECT IF CART IS EMPTY ────────────────────────────────────────────────
+if (!cart.length) {
+  window.location.href = 'index.html';
+}
+
+// ─── SHOW AUTH BANNER IF NOT LOGGED IN ───────────────────────────────────────
+// (don't redirect — let them see what they ordered first)
+if (!user || !token) {
+  document.getElementById('authBanner').style.display = 'flex';
+  document.getElementById('placeOrderBtn').disabled = true;
+}
+
+// ─── PRE-FILL USER INFO ───────────────────────────────────────────────────────
+if (user) {
+  document.getElementById('fullName').value = user.name  || '';
+  document.getElementById('email').value    = user.email || '';
+  document.getElementById('phone').value    = user.phone || '';
+}
+
+// ─── RENDER ORDER SUMMARY ────────────────────────────────────────────────────
 function renderSummary() {
-  const subtotal = cart.reduce((a, i) => a + i.price.selling * i.quantity, 0);
+  const subtotal = cart.reduce((a, i) => a + (i.price?.selling || 0) * i.quantity, 0);
   const shipping = subtotal > 50000 ? 0 : 1500;
-  const tax = Math.round(subtotal * 0.075);
-  const total = subtotal + shipping + tax;
+  const tax      = Math.round(subtotal * 0.075);
+  const total    = subtotal + shipping + tax;
 
-  document.getElementById('itemCount').textContent = cart.reduce((a, i) => a + i.quantity, 0);
-  document.getElementById('summaryItems').innerHTML = cart.map(i => {
-    const img = i.images?.[0]?.url ? `<img src="http://localhost:5000${i.images[0].url}" alt="${i.name}">` : '📦';
-    return `<div class="summary-item">
-      <div class="s-img">${img}</div>
-      <div style="flex:1;"><div class="s-name">${i.name}</div><div class="s-qty">Qty: ${i.quantity}</div></div>
-      <div class="s-price">₦${(i.price.selling * i.quantity).toLocaleString()}</div>
-    </div>`;
-  }).join('');
-
+  document.getElementById('itemCount').textContent   = cart.reduce((a, i) => a + i.quantity, 0);
   document.getElementById('sumSubtotal').textContent = `₦${subtotal.toLocaleString()}`;
   document.getElementById('sumShipping').textContent = shipping === 0 ? 'FREE' : `₦${shipping.toLocaleString()}`;
-  if (shipping === 0) document.getElementById('shippingRow').classList.add('free');
-  document.getElementById('sumTax').textContent = `₦${tax.toLocaleString()}`;
-  document.getElementById('sumTotal').textContent = `₦${total.toLocaleString()}`;
+  document.getElementById('sumTax').textContent      = `₦${tax.toLocaleString()}`;
+  document.getElementById('sumTotal').textContent    = `₦${total.toLocaleString()}`;
+
+  document.getElementById('summaryItems').innerHTML = cart.map(i => {
+    const imgSrc = i.images?.[0]?.url
+      ? `${API.replace('/api','')}/uploads/products/${i.images[0].url.split('/').pop()}`
+      : null;
+    const img = imgSrc ? `<img src="${imgSrc}" alt="${i.name}" onerror="this.parentElement.innerHTML='📦'">` : '📦';
+    return `<div class="si-item">
+      <div class="si-img">${img}</div>
+      <div style="flex:1;"><div class="si-name">${i.name}</div><div class="si-qty">× ${i.quantity}</div></div>
+      <div class="si-price">₦${((i.price?.selling||0) * i.quantity).toLocaleString()}</div>
+    </div>`;
+  }).join('');
 }
 
 renderSummary();
 
-// Payment selection
+// ─── PAYMENT SELECTION ───────────────────────────────────────────────────────
+let selectedPayment = 'card';
 function selectPayment(method, el) {
   document.querySelectorAll('.pay-opt').forEach(p => p.classList.remove('selected'));
   el.classList.add('selected');
@@ -325,39 +298,47 @@ function selectPayment(method, el) {
   document.getElementById('cardFields').style.display = method === 'card' ? 'block' : 'none';
 }
 
-// Card formatting
+// ─── CARD FORMATTING ─────────────────────────────────────────────────────────
 function formatCard(el) {
-  let v = el.value.replace(/\D/g, '').substring(0, 16);
-  el.value = v.replace(/(.{4})/g, '$1 ').trim();
+  let v = el.value.replace(/\D/g,'').substring(0,16);
+  el.value = v.replace(/(.{4})/g,'$1 ').trim();
 }
 function formatExpiry(el) {
-  let v = el.value.replace(/\D/g, '');
+  let v = el.value.replace(/\D/g,'');
   if (v.length >= 2) v = v.substring(0,2) + '/' + v.substring(2,4);
   el.value = v;
 }
 
-// Place order
+// ─── PLACE ORDER ─────────────────────────────────────────────────────────────
 async function placeOrder() {
-  const btn = document.getElementById('placeOrderBtn');
-  btn.disabled = true;
-  btn.textContent = 'Processing...';
-
-  const shippingAddress = {
-    fullName: document.getElementById('fullName').value,
-    phone: document.getElementById('phone').value,
-    street: document.getElementById('street').value,
-    city: document.getElementById('city').value,
-    state: document.getElementById('state').value,
-    country: 'Nigeria',
-    zipCode: document.getElementById('zipCode').value
-  };
-
-  if (!shippingAddress.fullName || !shippingAddress.phone || !shippingAddress.street || !shippingAddress.city) {
-    showToast('Please fill in all required fields', 'error');
-    btn.disabled = false;
-    btn.innerHTML = '🔒 Place Order';
+  if (!user || !token) {
+    toast('Please sign in first to place an order.', 'error');
     return;
   }
+
+  const fullName = document.getElementById('fullName').value.trim();
+  const phone    = document.getElementById('phone').value.trim();
+  const street   = document.getElementById('street').value.trim();
+  const city     = document.getElementById('city').value.trim();
+
+  if (!fullName || !phone || !street || !city) {
+    toast('Please fill in all delivery fields.', 'error');
+    return;
+  }
+
+  const btn = document.getElementById('placeOrderBtn');
+  btn.disabled = true;
+  btn.innerHTML = '⏳ Placing Order...';
+
+  const shippingAddress = {
+    fullName,
+    phone,
+    street,
+    city,
+    state:   document.getElementById('state').value,
+    country: 'Nigeria',
+    zipCode: document.getElementById('zipCode').value.trim()
+  };
 
   const items = cart.map(i => ({ product: i._id, quantity: i.quantity }));
 
@@ -365,35 +346,43 @@ async function placeOrder() {
     const res = await fetch(`${API}/orders`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-      body: JSON.stringify({ items, shippingAddress, paymentMethod: selectedPayment, notes: document.getElementById('orderNote').value })
+      body: JSON.stringify({
+        items,
+        shippingAddress,
+        paymentMethod: selectedPayment,
+        notes: document.getElementById('orderNote').value
+      })
     });
     const data = await res.json();
 
     if (data.success) {
+      // Clear cart from both old and new keys
+      localStorage.removeItem('vh_cart');
       localStorage.removeItem('volahub_cart');
-      document.getElementById('checkoutView').style.display = 'none';
+      document.getElementById('checkoutView').style.display  = 'none';
       document.getElementById('successScreen').style.display = 'block';
       document.getElementById('successOrderNum').textContent = `#${data.data.orderNumber}`;
     } else {
-      showToast(data.message, 'error');
+      toast(data.message || 'Order failed. Please try again.', 'error');
       btn.disabled = false;
       btn.innerHTML = '🔒 Place Order';
     }
   } catch (err) {
-    showToast('Network error. Please try again.', 'error');
+    toast('Network error. Please check your connection and try again.', 'error');
     btn.disabled = false;
     btn.innerHTML = '🔒 Place Order';
   }
 }
 
-function showToast(msg, type = 'info') {
-  const c = document.getElementById('toastContainer');
-  const t = document.createElement('div');
-  t.className = `toast ${type}`;
-  t.innerHTML = `${type === 'error' ? '❌' : '✅'} ${msg}`;
-  c.appendChild(t);
-  setTimeout(() => t.classList.add('show'), 10);
-  setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 3500);
+// ─── TOAST ────────────────────────────────────────────────────────────────────
+function toast(msg, type = 'info') {
+  const wrap = document.getElementById('toastWrap');
+  const el = document.createElement('div');
+  el.className = `toast ${type}`;
+  el.innerHTML = `${type==='error'?'❌':'✅'} ${msg}`;
+  wrap.appendChild(el);
+  requestAnimationFrame(() => { requestAnimationFrame(() => el.classList.add('show')); });
+  setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 400); }, 4000);
 }
 </script>
 </body>
