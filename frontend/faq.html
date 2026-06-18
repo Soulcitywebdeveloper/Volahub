@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Frequently Asked Questions – VolaHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--g50:#f0faf3;--g100:#d1f0da;--g200:#a3e0b6;--g400:#3db065;--g500:#2a9050;--g600:#1f7a3e;--g700:#165c2e;--g900:#061f0f;--s50:#f8faf8;--s100:#eef2ee;--s200:#d4ddd4;--s400:#8a9e8a;--s600:#4a5e4a;--s800:#1e281e;--fd:'Syne',sans-serif;--fb:'Plus Jakarta Sans',sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}body{font-family:var(--fb);background:#fff;color:var(--s800);}
+nav{background:rgba(255,255,255,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--g100);position:sticky;top:0;z-index:100;padding:0 5%;}
+.ni{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:66px;}
+.logo{font-family:var(--fd);font-size:24px;font-weight:800;color:var(--g600);text-decoration:none;letter-spacing:-1px;}.logo span{color:var(--g400);}
+.nl{display:flex;gap:4px;}.nla{padding:8px 16px;border-radius:50px;font-size:13px;font-weight:600;color:var(--s600);text-decoration:none;}.nla:hover{background:var(--g50);color:var(--g600);}
+.ncta{padding:9px 20px;background:var(--g500);color:#fff;border-radius:50px;font-size:13px;font-weight:700;text-decoration:none;}
+.hero{background:linear-gradient(135deg,var(--g700),var(--g500) 55%,var(--g400));padding:72px 5%;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;bottom:-80px;left:-80px;width:320px;height:320px;background:rgba(255,255,255,.04);border-radius:50%;}
+.hi{position:relative;z-index:1;}
+.hbadge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;padding:6px 18px;border-radius:50px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;}
+.hero h1{font-family:var(--fd);font-size:clamp(30px,5vw,52px);font-weight:800;color:#fff;letter-spacing:-2px;margin-bottom:12px;}
+.hero p{color:rgba(255,255,255,.75);font-size:16px;max-width:520px;margin:0 auto 28px;}
+.search-wrap{max-width:520px;margin:0 auto;position:relative;}
+.search-wrap input{width:100%;padding:15px 20px 15px 50px;border-radius:50px;border:none;font-family:var(--fb);font-size:15px;outline:none;box-shadow:0 6px 24px rgba(0,0,0,.15);}
+.search-ico{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:18px;pointer-events:none;}
+.main{max-width:860px;margin:0 auto;padding:56px 5%;}
+.cat-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;}
+.ct{padding:9px 20px;border-radius:50px;font-size:13px;font-weight:600;cursor:pointer;border:1.5px solid var(--s200);background:transparent;color:var(--s600);font-family:var(--fb);transition:all .2s;}
+.ct:hover{border-color:var(--g400);color:var(--g600);}.ct.active{background:var(--g500);color:#fff;border-color:var(--g500);}
+.faq-group{margin-bottom:44px;display:none;}.faq-group.show{display:block;}
+.group-hdr{display:flex;align-items:center;gap:10px;font-family:var(--fd);font-size:22px;font-weight:800;margin-bottom:18px;color:var(--s800);}
+.faq-item{border:1.5px solid var(--s100);border-radius:14px;margin-bottom:10px;overflow:hidden;transition:border-color .2s;}
+.faq-item:hover{border-color:var(--g200);}
+.faq-item.open{border-color:var(--g300);}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;font-weight:700;font-size:15px;color:var(--s800);user-select:none;gap:16px;transition:color .2s;}
+.faq-q:hover,.faq-item.open .faq-q{color:var(--g600);}
+.chevron{font-size:12px;color:var(--s400);transition:transform .3s;flex-shrink:0;}
+.faq-item.open .chevron{transform:rotate(180deg);color:var(--g500);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.faq-item.open .faq-a{max-height:600px;}
+.faq-a-inner{padding:0 22px 20px;font-size:14px;color:var(--s600);line-height:1.85;}
+.faq-a-inner a{color:var(--g600);font-weight:600;}.faq-a-inner ul{margin:8px 0 8px 20px;}.faq-a-inner li{margin-bottom:6px;}
+.faq-a-inner strong{color:var(--s800);}
+.no-results{text-align:center;padding:48px;color:var(--s400);font-size:16px;}
+.help-section{background:var(--g50);border-radius:24px;padding:44px;text-align:center;margin-top:48px;}
+.help-section h3{font-family:var(--fd);font-size:26px;font-weight:800;margin-bottom:8px;}
+.help-section p{font-size:15px;color:var(--s400);margin-bottom:28px;}
+.help-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.hcard{background:#fff;border:1.5px solid var(--g100);border-radius:16px;padding:22px;transition:all .25s;text-decoration:none;display:block;color:inherit;}
+.hcard:hover{border-color:var(--g300);transform:translateY(-3px);box-shadow:0 6px 20px rgba(42,144,80,.08);}
+.hcard-icon{font-size:32px;margin-bottom:10px;}
+.hcard-title{font-weight:800;font-size:15px;margin-bottom:4px;}
+.hcard-desc{font-size:12px;color:var(--s400);line-height:1.6;}
+.hcard-link{color:var(--g600);font-size:13px;font-weight:700;margin-top:8px;display:block;}
+footer{background:var(--g900);padding:28px 5%;text-align:center;}footer p{color:rgba(255,255,255,.4);font-size:13px;}footer a{color:var(--g400);text-decoration:none;}
+@media(max-width:600px){.help-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav><div class="ni">
+  <a class="logo" href="index.html">Vola<span>Hub</span></a>
+  <div class="nl"><a href="index.html" class="nla">Shop</a><a href="returns.html" class="nla">Returns</a><a href="shipping.html" class="nla">Shipping</a></div>
+  <a href="index.html" class="ncta">Shop Now →</a>
+</div></nav>
+
+<div class="hero"><div class="hi">
+  <div class="hbadge">Help Center</div>
+  <h1>Frequently Asked Questions</h1>
+  <p>Everything you need to know about shopping, delivery, payments, and returns on VolaHub.</p>
+  <div class="search-wrap">
+    <span class="search-ico">🔍</span>
+    <input type="text" id="faqSearch" placeholder="Search questions..." oninput="searchFAQ(this.value)">
+  </div>
+</div></div>
+
+<div class="main">
+  <div class="cat-tabs">
+    <button class="ct active" onclick="showCat('all',this)">📋 All</button>
+    <button class="ct" onclick="showCat('orders',this)">🧾 Orders</button>
+    <button class="ct" onclick="showCat('delivery',this)">🚚 Delivery</button>
+    <button class="ct" onclick="showCat('payment',this)">💳 Payment</button>
+    <button class="ct" onclick="showCat('returns',this)">↩️ Returns</button>
+    <button class="ct" onclick="showCat('account',this)">👤 Account</button>
+    <button class="ct" onclick="showCat('products',this)">📦 Products</button>
+  </div>
+  <div id="noResults" class="no-results" style="display:none;">No questions found for "<span id="noResultsQ"></span>". Try different keywords.</div>
+
+  <div class="faq-group show" data-cat="orders">
+    <div class="group-hdr">🧾 Orders</div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">How do I place an order on VolaHub?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Browse our product catalogue, add items to your cart, then click "Proceed to Checkout." You'll be asked to sign in or create a free account, enter your delivery address, choose a payment method, and confirm. You receive an email confirmation immediately and can track your order in <a href="orders.html">My Orders</a>.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">Can I modify or cancel my order after placing it?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Yes — within <strong>1 hour</strong> of placing your order. Contact us via WhatsApp (+234 800 VOLAHUB) immediately. After that, your order enters processing and can no longer be changed. If it has already been dispatched, you will need to use our 7-day returns process once delivered.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">How do I track my order?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Two ways: (1) Log into your account and visit <a href="orders.html">My Orders</a> for real-time status. (2) Use the <a href="orders.html">"Track an Order"</a> tab with just your order number and email — no login needed. You also receive SMS and email notifications at each status change.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">What do the order statuses mean?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner"><ul><li><strong>Pending</strong> — Received, awaiting confirmation</li><li><strong>Confirmed</strong> — Verified and accepted by our team</li><li><strong>Processing</strong> — Being picked and packed in our warehouse</li><li><strong>Shipped</strong> — Handed over to our logistics partner, in transit</li><li><strong>Delivered</strong> — Successfully delivered to your address</li><li><strong>Cancelled</strong> — Order was cancelled before dispatch</li></ul></div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">I didn't receive a confirmation email. What should I do?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">First check your <strong>spam or junk mail</strong> folder — confirmation emails sometimes land there. Then log in and check <a href="orders.html">My Orders</a>. If your order appears there, it was placed successfully and we can resend the email. If it doesn't appear, your payment may not have completed — contact us at support@volahub.com with your transaction reference.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">Can I place a bulk or corporate order?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Yes! VolaHub has a dedicated B2B programme for businesses ordering large quantities. You get custom pricing (minimum 15% discount), invoice-based billing, and a dedicated account manager. Email b2b@volahub.com or visit our <a href="partnerships.html">Partnerships</a> page.</div></div></div>
+  </div>
+
+  <div class="faq-group show" data-cat="delivery">
+    <div class="group-hdr">🚚 Delivery</div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">How long does delivery take?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Standard delivery is <strong>2–5 business days</strong> depending on your location. Lagos, Abuja, Port Harcourt, and Kano receive delivery in 1–2 days. Express delivery (available in hub cities) delivers same-day or next-day. See our <a href="shipping.html">full shipping guide</a> for a state-by-state breakdown.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">Do you deliver to my state?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Yes — VolaHub delivers to all <strong>36 states</strong> and the FCT. Some rural local government areas may require an extra day. If you're unsure about your exact area, contact us before ordering and we'll confirm availability and timing.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">How much does shipping cost?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Standard delivery is <strong>₦1,500</strong> for orders under ₦50,000. Orders above ₦50,000 ship <strong>FREE</strong> automatically — no coupon needed. Express delivery in hub cities is <strong>₦3,500</strong>. The correct fee is always shown at checkout before you confirm.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">What happens if I miss my delivery?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Our courier will attempt delivery <strong>3 times</strong> total. After each missed attempt, you'll receive an SMS and email notification. After 3 failed attempts, the order returns to our warehouse. Contact us within 48 hours on WhatsApp to reschedule at no extra charge. After 7 days, unclaimed orders are automatically refunded.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">Can I change my delivery address after ordering?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Only before the order is dispatched. Contact us immediately via WhatsApp (+234 800 VOLAHUB). Once our courier has picked up the package, the address cannot be changed and you would need to reschedule redelivery after the first attempt.</div></div></div>
+  </div>
+
+  <div class="faq-group show" data-cat="payment">
+    <div class="group-hdr">💳 Payment</div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">What payment methods do you accept?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner"><ul><li><strong>Card Payment</strong> — Visa, Mastercard, Verve (online)</li><li><strong>Bank Transfer</strong> — Direct transfer, we confirm within 30 minutes</li><li><strong>Pay on Delivery</strong> — Cash or POS machine at your door</li><li><strong>Mobile Money</strong> — Opay, Palmpay, Kuda, and other Nigerian fintechs</li></ul></div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">Is it safe to pay on VolaHub?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Completely safe. All card transactions go through <strong>256-bit SSL encryption</strong> via certified Nigerian payment gateways (Paystack/Flutterwave). We never store your card details on our servers. If you'd prefer not to pay online, Pay on Delivery (cash or POS) is always available.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">I was charged but my order didn't go through. What happened?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">This is usually a <strong>temporary authorisation hold</strong> — the charge reverses automatically in 3–5 business days. Check <a href="orders.html">My Orders</a>: if no order appears, the transaction failed and any hold will reverse automatically. If it doesn't reverse within 7 days, email us at support@volahub.com with your bank transaction reference and we'll investigate immediately.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">Do you offer buy now, pay later or installments?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Not currently, but we are actively evaluating BNPL integration with Nigerian fintech partners. Join our mailing list to be notified when it launches — or contact us for corporate credit terms on bulk orders above ₦200,000.</div></div></div>
+  </div>
+
+  <div class="faq-group show" data-cat="returns">
+    <div class="group-hdr">↩️ Returns & Refunds</div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">What is your returns policy?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">You can return most eligible items within <strong>7 days</strong> of delivery. Items must be unopened, in original condition and packaging. Read the full <a href="returns.html">Returns Policy</a> for the complete list of eligible and non-returnable items.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">How long do refunds take?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">After we receive and inspect your return (1–2 business days), we approve and process the refund. Card refunds take <strong>3–5 business days</strong> to appear. Bank transfer refunds take <strong>1–3 business days</strong>. You'll receive email confirmation when the refund is initiated.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">I received a damaged or wrong item — what do I do?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Take photos of the item and packaging and <strong>contact us immediately</strong> via WhatsApp or email. For damaged or wrong items, we cover all return shipping costs and process a full refund or free replacement within 24 hours of your report. You don't need to wait for the 7-day window — report it as soon as you notice.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">Can I exchange instead of getting a refund?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Yes! We're happy to exchange any eligible item for a different variant, size, or alternative product. Contact us via WhatsApp with your order number and the item you'd like instead, and we'll check stock availability within 24 hours.</div></div></div>
+  </div>
+
+  <div class="faq-group show" data-cat="account">
+    <div class="group-hdr">👤 Account</div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">Do I need an account to shop?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">You need a free account to place orders and track deliveries. Creating one takes under 60 seconds — just your name, email, and a password. Your account also gives you access to order history, saved addresses, and exclusive member-only discounts.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">I forgot my password. How do I reset it?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Click "Sign In" on the store, then tap "Forgot Password." Enter the email address on your account and we'll send a reset link. If you don't receive it within 5 minutes, check your spam folder. Still nothing? Contact support@volahub.com and we'll sort it out manually.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">How do I delete my VolaHub account?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Email support@volahub.com with the subject <em>"Account Deletion Request"</em> from your registered email address. We'll process your request within 7 business days. Note: account deletion is <strong>permanent</strong> and removes all your order history, saved addresses, and profile data.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">Is my personal data safe with VolaHub?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Yes. We comply with Nigeria's data protection regulations (NDPR). Your personal information is encrypted, never sold to third parties, and used only to fulfil your orders and improve your shopping experience. Read our Privacy Policy for full details.</div></div></div>
+  </div>
+
+  <div class="faq-group show" data-cat="products">
+    <div class="group-hdr">📦 Products</div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">Are all products on VolaHub authentic?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Absolutely. Every product is sourced <strong>directly from verified manufacturers</strong> and authorised Nigerian distributors. We perform quality checks on every batch received and immediately remove any products that don't pass. If you ever receive a product you suspect is counterfeit, contact us and you'll receive a full refund immediately — no questions asked.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">How do I know if a product is in stock?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Every product page shows live stock status: "In Stock," "Only X left" (low stock warning), or "Out of Stock." Stock updates in real time as orders are placed. Out-of-stock items are restocked regularly — check back or contact us to request a restock notification.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">Do you sell expired products?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Never. Every perishable product we dispatch has a <strong>minimum 3-month remaining shelf life</strong>. Our warehouse team checks expiry dates on every outbound order. If you ever receive an expired product, contact us immediately for a full refund and free replacement — this is one of our highest-priority issues.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggle(this)">Can I request a product that isn't listed?<span class="chevron">▼</span></div><div class="faq-a"><div class="faq-a-inner">Yes! Email products@volahub.com with the product name, brand, and how many units you need. Our procurement team reviews all requests weekly and frequently adds popular suggestions to our catalogue. For large quantities (case quantities or more), we can often source and deliver within 5–7 business days.</div></div></div>
+  </div>
+
+  <div class="help-section">
+    <h3>Still Need Help?</h3>
+    <p>Our support team is available every day, 7am–10pm. Choose the fastest channel for you.</p>
+    <div class="help-grid">
+      <a href="https://wa.me/234800VOLAHUB" class="hcard">
+        <div class="hcard-icon">📱</div>
+        <div class="hcard-title">WhatsApp</div>
+        <div class="hcard-desc">Fastest responses — usually under 5 minutes during business hours</div>
+        <span class="hcard-link">+234 800 VOLAHUB →</span>
+      </a>
+      <a href="mailto:support@volahub.com" class="hcard">
+        <div class="hcard-icon">📧</div>
+        <div class="hcard-title">Email Support</div>
+        <div class="hcard-desc">For detailed queries. We respond within 2 hours on business days.</div>
+        <span class="hcard-link">support@volahub.com →</span>
+      </a>
+      <a href="orders.html" class="hcard">
+        <div class="hcard-icon">📦</div>
+        <div class="hcard-title">My Orders</div>
+        <div class="hcard-desc">Track, modify, or report an issue with your order in real time.</div>
+        <span class="hcard-link">Go to My Orders →</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer><p>© 2025 VolaHub Ltd. &nbsp;·&nbsp; <a href="returns.html">Returns</a> &nbsp;·&nbsp; <a href="shipping.html">Shipping</a> &nbsp;·&nbsp; <a href="about.html">About</a></p></footer>
+
+<script>
+function toggle(el){const item=el.closest('.faq-item');const open=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!open)item.classList.add('open');}
+function showCat(cat,el){document.querySelectorAll('.ct').forEach(b=>b.classList.remove('active'));el.classList.add('active');document.querySelectorAll('.faq-group').forEach(g=>g.classList.toggle('show',cat==='all'||g.dataset.cat===cat));document.getElementById('faqSearch').value='';document.getElementById('noResults').style.display='none';document.querySelectorAll('.faq-item').forEach(i=>i.style.display='');}
+function searchFAQ(q){const query=q.toLowerCase().trim();document.querySelectorAll('.ct').forEach(b=>b.classList.remove('active'));document.querySelector('.ct').classList.add('active');document.querySelectorAll('.faq-group').forEach(g=>g.classList.add('show'));if(!query){document.querySelectorAll('.faq-item').forEach(i=>i.style.display='');document.getElementById('noResults').style.display='none';return;}let found=0;document.querySelectorAll('.faq-item').forEach(item=>{const show=item.textContent.toLowerCase().includes(query);item.style.display=show?'':'none';if(show)found++;});document.getElementById('noResults').style.display=found?'none':'block';document.getElementById('noResultsQ').textContent=q;}
+</script>
+</body></html>

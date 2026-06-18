@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Partnerships – VolaHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--g50:#f0faf3;--g100:#d1f0da;--g200:#a3e0b6;--g400:#3db065;--g500:#2a9050;--g600:#1f7a3e;--g700:#165c2e;--g900:#061f0f;--s50:#f8faf8;--s100:#eef2ee;--s200:#d4ddd4;--s400:#8a9e8a;--s600:#4a5e4a;--s800:#1e281e;--amber:#f59e0b;--blue:#3b82f6;--fd:'Syne',sans-serif;--fb:'Plus Jakarta Sans',sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}body{font-family:var(--fb);background:#fff;color:var(--s800);}
+nav{background:rgba(255,255,255,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--g100);position:sticky;top:0;z-index:100;padding:0 5%;}
+.ni{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:66px;}
+.logo{font-family:var(--fd);font-size:24px;font-weight:800;color:var(--g600);text-decoration:none;letter-spacing:-1px;}.logo span{color:var(--g400);}
+.nl{display:flex;gap:4px;}.nla{padding:8px 16px;border-radius:50px;font-size:13px;font-weight:600;color:var(--s600);text-decoration:none;}.nla:hover{background:var(--g50);color:var(--g600);}
+.ncta{padding:9px 20px;background:var(--g500);color:#fff;border-radius:50px;font-size:13px;font-weight:700;text-decoration:none;}
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--g900),var(--g700) 45%,var(--g500) 100%);padding:100px 5%;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(61,176,101,.12),transparent 70%);border-radius:50%;}
+.hi{max-width:760px;margin:0 auto;position:relative;z-index:1;}
+.hbadge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;padding:6px 18px;border-radius:50px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:22px;}
+.hero h1{font-family:var(--fd);font-size:clamp(32px,6vw,66px);font-weight:800;color:#fff;letter-spacing:-3px;line-height:1.0;margin-bottom:18px;}.hero h1 em{font-style:normal;color:var(--g200);}
+.hero p{color:rgba(255,255,255,.78);font-size:17px;line-height:1.75;max-width:600px;margin:0 auto 36px;}
+.hero-cta{display:inline-block;padding:14px 36px;background:#fff;color:var(--g700);border-radius:50px;font-weight:800;font-size:15px;text-decoration:none;transition:all .2s;box-shadow:0 6px 24px rgba(0,0,0,.15);}
+.hero-cta:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.2);}
+/* STATS STRIP */
+.stats-strip{background:var(--g50);border-top:1px solid var(--g100);border-bottom:1px solid var(--g100);padding:36px 5%;}
+.stats-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;}
+.stat-n{font-family:var(--fd);font-size:36px;font-weight:800;color:var(--g600);letter-spacing:-1px;}
+.stat-l{font-size:12px;color:var(--s400);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:4px;}
+/* SECTIONS */
+.s{padding:80px 5%;}
+.si{max-width:1120px;margin:0 auto;}
+.stag{display:inline-block;background:var(--g50);color:var(--g600);font-size:11px;font-weight:700;padding:5px 16px;border-radius:20px;text-transform:uppercase;letter-spacing:1px;border:1px solid var(--g100);margin-bottom:14px;}
+.sh{font-family:var(--fd);font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-1.5px;margin-bottom:14px;}.sh span{color:var(--g500);}
+.sp{font-size:16px;color:var(--s400);line-height:1.7;}
+/* PARTNER CARDS */
+.partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px;}
+.pcard{border-radius:20px;padding:32px 28px;border:2px solid transparent;transition:all .3s;}
+.pcard:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(0,0,0,.06);}
+.pc-green{background:var(--g50);border-color:var(--g200);}
+.pc-blue{background:#eff6ff;border-color:#bfdbfe;}
+.pc-purple{background:#f5f3ff;border-color:#e9d5ff;}
+.pc-amber{background:#fffbeb;border-color:#fde68a;}
+.pc-slate{background:var(--s50);border-color:var(--s200);}
+.pc-red{background:#fef2f2;border-color:#fecaca;}
+.pc-icon{font-size:44px;margin-bottom:16px;}
+.pc-title{font-family:var(--fd);font-size:20px;font-weight:800;margin-bottom:8px;}
+.pc-desc{font-size:14px;color:var(--s400);line-height:1.7;margin-bottom:18px;}
+.pc-benefits{list-style:none;font-size:13px;color:var(--s600);}
+.pc-benefits li{padding:5px 0;display:flex;align-items:flex-start;gap:7px;border-bottom:1px solid rgba(0,0,0,.04);}
+.pc-benefits li:last-child{border-bottom:none;}
+/* FORM */
+.form-wrap{background:var(--g50);border-radius:24px;padding:48px;max-width:740px;margin:0 auto;}
+.form-wrap h3{font-family:var(--fd);font-size:28px;font-weight:800;margin-bottom:6px;}
+.form-wrap p{font-size:15px;color:var(--s400);margin-bottom:28px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.fg{display:flex;flex-direction:column;gap:6px;}
+.fg.full{grid-column:span 2;}
+.fl{font-size:11px;font-weight:700;color:var(--s600);text-transform:uppercase;letter-spacing:.5px;}
+.fi{padding:12px 14px;border:1.5px solid var(--s200);border-radius:11px;font-family:var(--fb);font-size:14px;outline:none;transition:border-color .2s;width:100%;background:#fff;}
+.fi:focus{border-color:var(--g400);box-shadow:0 0 0 3px rgba(42,144,80,.1);}
+textarea.fi{min-height:100px;resize:vertical;}
+.sub-btn{padding:14px 36px;background:var(--g500);color:#fff;border:none;border-radius:12px;font-family:var(--fb);font-size:15px;font-weight:700;cursor:pointer;transition:background .2s;margin-top:10px;}
+.sub-btn:hover{background:var(--g600);}
+.success-box{display:none;text-align:center;padding:32px 0;}
+.success-box h4{font-family:var(--fd);font-size:22px;font-weight:800;margin:12px 0 8px;}
+.success-box p{font-size:14px;color:var(--s400);}
+/* BOTTOM CTA */
+.bottom-cta{background:linear-gradient(135deg,var(--g700),var(--g500));border-radius:28px;padding:72px 48px;text-align:center;position:relative;overflow:hidden;}
+.bottom-cta::before{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;background:rgba(255,255,255,.05);border-radius:50%;}
+.bottom-cta h2{font-family:var(--fd);font-size:clamp(26px,4vw,44px);font-weight:800;color:#fff;letter-spacing:-1px;margin-bottom:14px;}
+.bottom-cta p{color:rgba(255,255,255,.78);font-size:16px;margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.cta-btn{padding:14px 32px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;transition:all .2s;}
+.cta-btn.solid{background:#fff;color:var(--g700);}.cta-btn.solid:hover{transform:translateY(-2px);}
+.cta-btn.ghost{background:transparent;border:2px solid rgba(255,255,255,.4);color:#fff;}.cta-btn.ghost:hover{background:rgba(255,255,255,.1);}
+footer{background:var(--g900);padding:28px 5%;text-align:center;}footer p{color:rgba(255,255,255,.4);font-size:13px;}footer a{color:var(--g400);text-decoration:none;}
+@media(max-width:900px){.partner-grid{grid-template-columns:1fr 1fr;}.stats-inner{grid-template-columns:repeat(2,1fr);}.form-grid{grid-template-columns:1fr;}.fg.full{grid-column:span 1;}}
+@media(max-width:560px){.partner-grid{grid-template-columns:1fr;}.bottom-cta{padding:48px 24px;}}
+</style>
+</head>
+<body>
+<nav><div class="ni">
+  <a class="logo" href="index.html">Vola<span>Hub</span></a>
+  <div class="nl"><a href="index.html" class="nla">Shop</a><a href="about.html" class="nla">About</a><a href="careers.html" class="nla">Careers</a></div>
+  <a href="index.html" class="ncta">Shop Now →</a>
+</div></nav>
+
+<div class="hero"><div class="hi">
+  <div class="hbadge">Let's Grow Together</div>
+  <h1>Partner with <em>VolaHub</em> &amp;<br>Reach Millions</h1>
+  <p>We're building Nigeria's most reliable FMCG supply chain. Whether you're a manufacturer, logistics company, brand, or tech company — there's a partnership model for you.</p>
+  <a href="#form" class="hero-cta">Start a Partnership Conversation →</a>
+</div></div>
+
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div><div class="stat-n">12K+</div><div class="stat-l">Active Customers</div></div>
+    <div><div class="stat-n">36</div><div class="stat-l">States Reached</div></div>
+    <div><div class="stat-n">500+</div><div class="stat-l">Products Listed</div></div>
+    <div><div class="stat-n">₦2.4B</div><div class="stat-l">Annual GMV</div></div>
+  </div>
+</div>
+
+<!-- PARTNER TYPES -->
+<section class="s">
+  <div class="si">
+    <div style="text-align:center;max-width:560px;margin:0 auto 44px;">
+      <div class="stag">Partnership Models</div>
+      <h2 class="sh">Six Ways We Can <span>Work Together</span></h2>
+      <p class="sp" style="margin:0 auto;">Structured programmes designed for every type of business in the FMCG ecosystem.</p>
+    </div>
+    <div class="partner-grid">
+      <div class="pcard pc-green">
+        <div class="pc-icon">🏭</div>
+        <div class="pc-title">Manufacturers &amp; Suppliers</div>
+        <div class="pc-desc">List your products on VolaHub and reach 12,000+ active shoppers across Nigeria. We handle storage, fulfilment, and customer service.</div>
+        <ul class="pc-benefits">
+          <li>✅ Dedicated product listing management</li>
+          <li>✅ Weekly sell-through analytics</li>
+          <li>✅ Net-30 payment terms</li>
+          <li>✅ Return management handled for you</li>
+        </ul>
+      </div>
+      <div class="pcard pc-blue">
+        <div class="pc-icon">🚚</div>
+        <div class="pc-title">Logistics Partners</div>
+        <div class="pc-desc">Join our delivery network and earn from every VolaHub shipment in your area. High and consistent volume. Flexible scheduling.</div>
+        <ul class="pc-benefits">
+          <li>✅ Guaranteed daily delivery volumes</li>
+          <li>✅ Real-time order management dashboard</li>
+          <li>✅ Weekly guaranteed payment</li>
+          <li>✅ Fuel subsidy for hub city couriers</li>
+        </ul>
+      </div>
+      <div class="pcard pc-purple">
+        <div class="pc-icon">🏢</div>
+        <div class="pc-title">Corporate Buyers (B2B)</div>
+        <div class="pc-desc">Bulk purchasing for offices, hotels, restaurants, schools, and institutions. Custom pricing, dedicated account manager, invoice billing.</div>
+        <ul class="pc-benefits">
+          <li>✅ Minimum 15% volume discount</li>
+          <li>✅ Dedicated account manager</li>
+          <li>✅ 30/60-day invoice billing</li>
+          <li>✅ Priority stock reservation</li>
+        </ul>
+      </div>
+      <div class="pcard pc-amber">
+        <div class="pc-icon">⭐</div>
+        <div class="pc-title">Brand Ambassadors</div>
+        <div class="pc-desc">Earn commissions promoting VolaHub to your audience. Ideal for content creators, influencers, bloggers, and community leaders.</div>
+        <ul class="pc-benefits">
+          <li>✅ 5–10% commission on all referred orders</li>
+          <li>✅ Custom referral link + dashboard</li>
+          <li>✅ Monthly bank transfer payouts</li>
+          <li>✅ Free product samples for content</li>
+        </ul>
+      </div>
+      <div class="pcard pc-slate">
+        <div class="pc-icon">💻</div>
+        <div class="pc-title">Technology Partners</div>
+        <div class="pc-desc">Build on top of the VolaHub API. Integrations, analytics tools, inventory systems, or delivery tracking apps all welcome.</div>
+        <ul class="pc-benefits">
+          <li>✅ Full REST API access + docs</li>
+          <li>✅ Sandbox testing environment</li>
+          <li>✅ Revenue share on integrations</li>
+          <li>✅ Featured in our integrations directory</li>
+        </ul>
+      </div>
+      <div class="pcard pc-red">
+        <div class="pc-icon">📢</div>
+        <div class="pc-title">Media &amp; Press</div>
+        <div class="pc-desc">Access our media kit, request interviews, or collaborate on editorial stories covering Nigerian FMCG, retail, and e-commerce.</div>
+        <ul class="pc-benefits">
+          <li>✅ High-res brand assets + press kit</li>
+          <li>✅ Exclusive data insights for stories</li>
+          <li>✅ CEO/founder interview access</li>
+          <li>✅ Press release collaboration</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INQUIRY FORM -->
+<section class="s" style="background:var(--s50);" id="form">
+  <div class="si">
+    <div class="form-wrap">
+      <h3>Start the Conversation</h3>
+      <p>Tell us about your business and the type of partnership you're interested in. Our partnerships team responds within 2 business days.</p>
+      <div class="form-grid" id="pForm">
+        <div class="fg"><label class="fl">Your Name *</label><input type="text" class="fi" id="pName" placeholder="Emeka Johnson"></div>
+        <div class="fg"><label class="fl">Company / Organisation *</label><input type="text" class="fi" id="pCompany" placeholder="Johnson Foods Ltd"></div>
+        <div class="fg"><label class="fl">Email Address *</label><input type="email" class="fi" id="pEmail" placeholder="emeka@johnsonfood.com"></div>
+        <div class="fg"><label class="fl">Phone Number</label><input type="tel" class="fi" id="pPhone" placeholder="08012345678"></div>
+        <div class="fg"><label class="fl">Partnership Type *</label>
+          <select class="fi" id="pType">
+            <option value="">Select type...</option>
+            <option>Manufacturer / Supplier</option>
+            <option>Logistics Partner</option>
+            <option>Corporate Buyer (B2B)</option>
+            <option>Brand Ambassador</option>
+            <option>Technology Partner</option>
+            <option>Media / Press</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="fg"><label class="fl">Company Size</label>
+          <select class="fi" id="pSize">
+            <option>1–10 employees</option>
+            <option>11–50 employees</option>
+            <option>51–200 employees</option>
+            <option>200+ employees</option>
+          </select>
+        </div>
+        <div class="fg full"><label class="fl">Tell us about your business and what you're looking for *</label><textarea class="fi" id="pMsg" placeholder="Brief description of your company and how you'd like to partner with VolaHub..."></textarea></div>
+      </div>
+      <button class="sub-btn" onclick="submitPartnership()">Send Inquiry →</button>
+      <div class="success-box" id="pSuccess">
+        <div style="font-size:56px;">🤝</div>
+        <h4>Inquiry Received!</h4>
+        <p>Our partnerships team will review your submission and reach out within <strong>2 business days</strong>. We look forward to exploring this together!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="s">
+  <div class="si">
+    <div class="bottom-cta">
+      <h2>Ready to Reach 12,000+ Nigerian Shoppers?</h2>
+      <p>Join the growing network of businesses that power VolaHub — and Nigeria's FMCG future.</p>
+      <div class="cta-btns">
+        <a href="#form" class="cta-btn solid">Start a Partnership →</a>
+        <a href="mailto:partnerships@volahub.com" class="cta-btn ghost">Email Us Directly</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><p>© 2025 VolaHub Ltd. &nbsp;·&nbsp; <a href="about.html">About</a> &nbsp;·&nbsp; <a href="careers.html">Careers</a> &nbsp;·&nbsp; <a href="mailto:partnerships@volahub.com">partnerships@volahub.com</a></p></footer>
+
+<script>
+function submitPartnership(){
+  const name=document.getElementById('pName').value.trim();
+  const co=document.getElementById('pCompany').value.trim();
+  const email=document.getElementById('pEmail').value.trim();
+  const type=document.getElementById('pType').value;
+  const msg=document.getElementById('pMsg').value.trim();
+  if(!name||!co||!email||!type||!msg){alert('Please fill in all required fields (marked with *).'); return;}
+  const subject=`Partnership Inquiry: ${type} – ${co}`;
+  const body=`Name: ${name}\nCompany: ${co}\nEmail: ${email}\nPhone: ${document.getElementById('pPhone').value}\nType: ${type}\n\nMessage:\n${msg}`;
+  window.location.href=`mailto:partnerships@volahub.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  document.getElementById('pForm').style.display='none';
+  document.querySelector('.sub-btn').style.display='none';
+  document.getElementById('pSuccess').style.display='block';
+}
+</script>
+</body></html>

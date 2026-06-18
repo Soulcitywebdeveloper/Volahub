@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Careers at VolaHub – Join Our Team</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--g50:#f0faf3;--g100:#d1f0da;--g200:#a3e0b6;--g400:#3db065;--g500:#2a9050;--g600:#1f7a3e;--g700:#165c2e;--g900:#061f0f;--s50:#f8faf8;--s100:#eef2ee;--s200:#d4ddd4;--s400:#8a9e8a;--s600:#4a5e4a;--s800:#1e281e;--amber:#f59e0b;--fd:'Syne',sans-serif;--fb:'Plus Jakarta Sans',sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}body{font-family:var(--fb);background:#fff;color:var(--s800);}
+nav{background:rgba(255,255,255,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--g100);position:sticky;top:0;z-index:100;padding:0 5%;}
+.ni{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:66px;}
+.logo{font-family:var(--fd);font-size:24px;font-weight:800;color:var(--g600);text-decoration:none;letter-spacing:-1px;}.logo span{color:var(--g400);}
+.nl{display:flex;gap:4px;}.nla{padding:8px 16px;border-radius:50px;font-size:13px;font-weight:600;color:var(--s600);text-decoration:none;}.nla:hover{background:var(--g50);color:var(--g600);}
+.ncta{padding:9px 20px;background:var(--g500);color:#fff;border-radius:50px;font-size:13px;font-weight:700;text-decoration:none;}
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--g900) 0%,var(--g700) 40%,var(--g500) 100%);padding:100px 5%;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(61,176,101,.15),transparent 70%);border-radius:50%;}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:280px;height:280px;background:rgba(255,255,255,.03);border-radius:50%;}
+.hi{max-width:760px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+.hbadge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;padding:6px 18px;border-radius:50px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:22px;}
+.hero h1{font-family:var(--fd);font-size:clamp(32px,6vw,68px);font-weight:800;color:#fff;letter-spacing:-3px;line-height:1.0;margin-bottom:18px;}
+.hero h1 em{font-style:normal;color:var(--g200);}
+.hero p{color:rgba(255,255,255,.78);font-size:17px;line-height:1.75;margin-bottom:36px;max-width:580px;margin-left:auto;margin-right:auto;}
+.hero-stats{display:inline-flex;gap:0;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:18px;overflow:hidden;}
+.hs{padding:18px 32px;text-align:center;border-right:1px solid rgba(255,255,255,.12);}
+.hs:last-child{border-right:none;}
+.hs-n{font-family:var(--fd);font-size:26px;font-weight:800;color:#fff;}
+.hs-l{font-size:11px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;}
+/* SECTIONS */
+.s{padding:80px 5%;}
+.si{max-width:1120px;margin:0 auto;}
+.stag{display:inline-block;background:var(--g50);color:var(--g600);font-size:11px;font-weight:700;padding:5px 16px;border-radius:20px;text-transform:uppercase;letter-spacing:1px;border:1px solid var(--g100);margin-bottom:14px;}
+.sh{font-family:var(--fd);font-size:clamp(26px,4vw,44px);font-weight:800;letter-spacing:-1.5px;line-height:1.05;margin-bottom:14px;}.sh span{color:var(--g500);}
+.sp{font-size:16px;color:var(--s400);line-height:1.7;max-width:560px;}
+/* PERKS */
+.perks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;}
+.perk{background:var(--g50);border:1.5px solid var(--g100);border-radius:18px;padding:28px 24px;transition:all .3s;}
+.perk:hover{transform:translateY(-5px);box-shadow:0 10px 28px rgba(42,144,80,.1);border-color:var(--g200);}
+.perk-icon{font-size:36px;margin-bottom:14px;}
+.perk-title{font-family:var(--fd);font-size:17px;font-weight:800;margin-bottom:8px;}
+.perk-desc{font-size:14px;color:var(--s400);line-height:1.65;}
+/* FILTER TABS */
+.jf-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0 20px;}
+.jft{padding:9px 20px;border-radius:50px;font-size:13px;font-weight:600;cursor:pointer;border:1.5px solid var(--s200);background:transparent;color:var(--s600);font-family:var(--fb);transition:all .2s;}
+.jft:hover{border-color:var(--g400);color:var(--g600);}.jft.active{background:var(--g500);color:#fff;border-color:var(--g500);}
+/* JOB CARDS */
+.job-card{background:#fff;border:1.5px solid var(--s100);border-radius:18px;padding:24px 28px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;transition:all .3s;}
+.job-card:hover{border-color:var(--g200);transform:translateX(6px);box-shadow:0 6px 20px rgba(42,144,80,.07);}
+.job-left{flex:1;}
+.job-title{font-family:var(--fd);font-size:19px;font-weight:800;margin-bottom:8px;}
+.job-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.jt{display:inline-flex;align-items:center;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;}
+.jt-dept{background:var(--g50);color:var(--g700);}
+.jt-loc{background:var(--s50);color:var(--s600);}
+.jt-type{background:#eff6ff;color:#1d4ed8;}
+.jt-new{background:var(--amber);color:#fff;}
+.job-desc{font-size:14px;color:var(--s400);line-height:1.6;max-width:600px;}
+.apply-btn{padding:11px 26px;background:var(--g500);color:#fff;border:none;border-radius:50px;font-family:var(--fb);font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;transition:all .2s;white-space:nowrap;}
+.apply-btn:hover{background:var(--g600);transform:scale(1.03);}
+/* PROCESS */
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px;position:relative;}
+.proc-grid::before{content:'';position:absolute;top:30px;left:60px;right:60px;height:2px;background:var(--g100);}
+.proc{text-align:center;position:relative;z-index:1;}
+.proc-dot{width:60px;height:60px;border-radius:50%;background:var(--g500);color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 16px;border:4px solid #fff;box-shadow:0 0 0 3px var(--g100);}
+.proc-title{font-family:var(--fd);font-size:15px;font-weight:800;margin-bottom:6px;}
+.proc-desc{font-size:13px;color:var(--s400);line-height:1.55;}
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal{background:#fff;border-radius:24px;max-width:560px;width:100%;max-height:90vh;overflow-y:auto;transform:scale(.96);transition:transform .3s;}
+.modal-overlay.open .modal{transform:scale(1);}
+.modal-hdr{padding:22px 26px;border-bottom:1px solid var(--s100);display:flex;justify-content:space-between;align-items:center;}
+.modal-hdr h2{font-family:var(--fd);font-size:20px;font-weight:800;}
+.close-x{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--s200);background:transparent;cursor:pointer;font-size:18px;color:var(--s400);transition:all .2s;}
+.close-x:hover{background:var(--s100);}
+.modal-body{padding:26px;}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+.fl{font-size:11px;font-weight:700;color:var(--s600);text-transform:uppercase;letter-spacing:.5px;}
+.fi{padding:12px 14px;border:1.5px solid var(--s200);border-radius:11px;font-family:var(--fb);font-size:14px;outline:none;transition:border-color .2s;width:100%;}
+.fi:focus{border-color:var(--g400);box-shadow:0 0 0 3px rgba(42,144,80,.1);}
+textarea.fi{min-height:90px;resize:vertical;}
+.sub-btn{width:100%;padding:14px;background:var(--g500);color:#fff;border:none;border-radius:12px;font-family:var(--fb);font-size:15px;font-weight:700;cursor:pointer;transition:background .2s;margin-top:8px;}
+.sub-btn:hover{background:var(--g600);}
+.success-msg{display:none;text-align:center;padding:36px 20px;}
+.success-msg h3{font-family:var(--fd);font-size:22px;font-weight:800;margin:14px 0 8px;}
+.success-msg p{font-size:14px;color:var(--s400);line-height:1.7;}
+footer{background:var(--g900);padding:28px 5%;text-align:center;}footer p{color:rgba(255,255,255,.4);font-size:13px;}footer a{color:var(--g400);text-decoration:none;}
+@media(max-width:900px){.perks-grid{grid-template-columns:1fr 1fr;}.proc-grid{grid-template-columns:1fr 1fr;}.proc-grid::before{display:none;}}
+@media(max-width:560px){.perks-grid{grid-template-columns:1fr;}.proc-grid{grid-template-columns:1fr;}.hero-stats{flex-direction:column;}.hs{border-right:none;border-bottom:1px solid rgba(255,255,255,.12);}.job-card{flex-direction:column;align-items:flex-start;}}
+</style>
+</head>
+<body>
+<nav><div class="ni">
+  <a class="logo" href="index.html">Vola<span>Hub</span></a>
+  <div class="nl"><a href="index.html" class="nla">Shop</a><a href="about.html" class="nla">About</a><a href="partnerships.html" class="nla">Partners</a></div>
+  <a href="index.html" class="ncta">Shop Now →</a>
+</div></nav>
+
+<div class="hero"><div class="hi">
+  <div class="hbadge">🇳🇬 We're Hiring</div>
+  <h1>Build the Future of <em>FMCG</em><br>in Nigeria</h1>
+  <p>Join a team of Nigerians on a mission to make quality products accessible to every household in the country. We're growing fast — come grow with us.</p>
+  <div class="hero-stats">
+    <div class="hs"><div class="hs-n">120+</div><div class="hs-l">Team Members</div></div>
+    <div class="hs"><div class="hs-n">18</div><div class="hs-l">Open Roles</div></div>
+    <div class="hs"><div class="hs-n">4</div><div class="hs-l">Office Cities</div></div>
+    <div class="hs"><div class="hs-n">3×</div><div class="hs-l">YoY Growth</div></div>
+  </div>
+</div></div>
+
+<!-- PERKS -->
+<section class="s" style="background:var(--s50);">
+  <div class="si">
+    <div style="text-align:center;max-width:540px;margin:0 auto 44px;">
+      <div class="stag">Why VolaHub</div>
+      <h2 class="sh">More Than Just a <span>Job</span></h2>
+      <p class="sp" style="margin:0 auto;">We build careers, not just fill roles. Here's what you get when you join us.</p>
+    </div>
+    <div class="perks-grid">
+      <div class="perk"><div class="perk-icon">💰</div><div class="perk-title">Competitive Pay</div><div class="perk-desc">Market-rate salaries benchmarked quarterly + performance bonuses paid every 6 months. We pay people what they're worth.</div></div>
+      <div class="perk"><div class="perk-icon">🏥</div><div class="perk-title">Full HMO Coverage</div><div class="perk-desc">Comprehensive health insurance for you and your immediate family from your first day. Includes dental and optical.</div></div>
+      <div class="perk"><div class="perk-icon">📈</div><div class="perk-title">Rapid Career Growth</div><div class="perk-desc">At a 3× growth company, careers accelerate fast. Most team leads were promoted from within within 18 months.</div></div>
+      <div class="perk"><div class="perk-icon">🎓</div><div class="perk-title">₦200K Learning Budget</div><div class="perk-desc">Annual budget for courses, conferences, certifications, and books. No approval required for amounts under ₦50,000.</div></div>
+      <div class="perk"><div class="perk-icon">🏠</div><div class="perk-title">Hybrid Work Model</div><div class="perk-desc">3 days in office, 2 days remote. We trust our team. Results matter, not seat time.</div></div>
+      <div class="perk"><div class="perk-icon">🛍️</div><div class="perk-title">30% Staff Discount</div><div class="perk-desc">Shop VolaHub at 30% off for yourself and your household. Applies to all product categories, always.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN ROLES -->
+<section class="s" id="open-roles">
+  <div class="si">
+    <div class="stag">Open Roles</div>
+    <h2 class="sh">Current <span>Opportunities</span></h2>
+    <p class="sp">Hiring across Lagos (HQ), Abuja, Port Harcourt, and Kano. Some roles are fully remote.</p>
+    <div class="jf-tabs">
+      <button class="jft active" onclick="filterJobs('all',this)">All Departments</button>
+      <button class="jft" onclick="filterJobs('tech',this)">Technology</button>
+      <button class="jft" onclick="filterJobs('ops',this)">Operations</button>
+      <button class="jft" onclick="filterJobs('marketing',this)">Marketing</button>
+      <button class="jft" onclick="filterJobs('sales',this)">Sales & B2B</button>
+      <button class="jft" onclick="filterJobs('cs',this)">Customer Success</button>
+    </div>
+    <div id="jobsList"></div>
+  </div>
+</section>
+
+<!-- HIRING PROCESS -->
+<section class="s" style="background:var(--s50);">
+  <div class="si">
+    <div style="text-align:center;max-width:540px;margin:0 auto;">
+      <div class="stag">Hiring Process</div>
+      <h2 class="sh">What to <span>Expect</span></h2>
+      <p class="sp" style="margin:0 auto;">Transparent, fast, and respectful of your time. Most offers are made within 10 business days of applying.</p>
+    </div>
+    <div class="proc-grid">
+      <div class="proc"><div class="proc-dot">📝</div><div class="proc-title">Apply Online</div><div class="proc-desc">Submit your CV + short cover note (3 sentences) through our form below</div></div>
+      <div class="proc"><div class="proc-dot">📞</div><div class="proc-title">Screening Call</div><div class="proc-desc">30-min call with HR to discuss the role, your background, and salary expectations</div></div>
+      <div class="proc"><div class="proc-dot">💡</div><div class="proc-title">Skills Assessment</div><div class="proc-desc">A real task relevant to the role — max 2 hours. Paid for senior roles (₦15,000+)</div></div>
+      <div class="proc"><div class="proc-dot">🤝</div><div class="proc-title">Offer &amp; Onboarding</div><div class="proc-desc">Meet the team, receive your offer letter, and start within 2 weeks if you accept</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY MODAL -->
+<div class="modal-overlay" id="applyModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-hdr">
+      <h2 id="modalTitle">Apply for Role</h2>
+      <button class="close-x" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="applyForm">
+        <div class="fg"><label class="fl">Full Name *</label><input type="text" class="fi" id="appName" placeholder="Adaeze Okafor"></div>
+        <div class="fg"><label class="fl">Email Address *</label><input type="email" class="fi" id="appEmail" placeholder="adaeze@example.com"></div>
+        <div class="fg"><label class="fl">Phone Number *</label><input type="tel" class="fi" id="appPhone" placeholder="08012345678"></div>
+        <div class="fg"><label class="fl">LinkedIn or Portfolio URL</label><input type="url" class="fi" id="appLink" placeholder="https://linkedin.com/in/yourname"></div>
+        <div class="fg"><label class="fl">CV / Resume (link to Google Drive or Dropbox) *</label><input type="url" class="fi" id="appCV" placeholder="https://drive.google.com/..."></div>
+        <div class="fg"><label class="fl">Why do you want to work at VolaHub? (2–3 sentences) *</label><textarea class="fi" id="appWhy" placeholder="Tell us briefly what excites you about this role and company..."></textarea></div>
+        <button class="sub-btn" onclick="submitApplication()">Submit Application →</button>
+      </div>
+      <div class="success-msg" id="successMsg">
+        <div style="font-size:60px;">🎉</div>
+        <h3>Application Submitted!</h3>
+        <p>Thank you for applying to VolaHub. Our HR team will review your application and reach out within <strong>5 business days</strong>. We read every application carefully.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer><p>© 2025 VolaHub Ltd. &nbsp;·&nbsp; <a href="about.html">About Us</a> &nbsp;·&nbsp; <a href="partnerships.html">Partnerships</a> &nbsp;·&nbsp; <a href="mailto:careers@volahub.com">careers@volahub.com</a></p></footer>
+
+<script>
+const JOBS=[
+  {id:1,title:'Senior Backend Engineer',dept:'tech',deptLabel:'Technology',loc:'Lagos (Hybrid)',type:'Full-time',isNew:true,desc:'Build and scale the Node.js/MongoDB API powering 12,000+ customers. 3+ yrs Node.js + REST API experience required.'},
+  {id:2,title:'React Native Mobile Developer',dept:'tech',deptLabel:'Technology',loc:'Lagos (Hybrid)',type:'Full-time',isNew:true,desc:'Own the VolaHub mobile app (iOS & Android). Expo + React Native experience required. You will be the sole mobile engineer.'},
+  {id:3,title:'DevOps / Cloud Engineer',dept:'tech',deptLabel:'Technology',loc:'Remote',type:'Full-time',isNew:false,desc:'Manage AWS/Render infrastructure, CI/CD pipelines, monitoring and 99.9% uptime. AWS certification is a plus.'},
+  {id:4,title:'UI/UX Designer',dept:'tech',deptLabel:'Technology',loc:'Lagos (Hybrid)',type:'Full-time',isNew:false,desc:'Design our web and mobile experiences. Figma proficiency required. E-commerce design portfolio strongly preferred.'},
+  {id:5,title:'Head of Logistics',dept:'ops',deptLabel:'Operations',loc:'Lagos',type:'Full-time',isNew:true,desc:'Lead our nationwide last-mile and middle-mile logistics network. 5+ years supply chain management required. FMCG preferred.'},
+  {id:6,title:'Warehouse Supervisor (Abuja)',dept:'ops',deptLabel:'Operations',loc:'Abuja',type:'Full-time',isNew:false,desc:'Day-to-day management of our Abuja distribution hub. FMCG warehousing experience preferred.'},
+  {id:7,title:'Logistics Coordinator',dept:'ops',deptLabel:'Operations',loc:'Lagos',type:'Full-time',isNew:false,desc:'Coordinate last-mile delivery partners across Lagos. Strong Excel and communication skills essential.'},
+  {id:8,title:'Digital Marketing Manager',dept:'marketing',deptLabel:'Marketing',loc:'Lagos (Hybrid)',type:'Full-time',isNew:true,desc:'Own our digital channels — SEO, email marketing, paid ads, and social. 3+ yrs e-commerce or FMCG marketing.'},
+  {id:9,title:'Content Creator / Videographer',dept:'marketing',deptLabel:'Marketing',loc:'Lagos',type:'Contract',isNew:false,desc:'Create engaging short-form video content for Instagram and TikTok. Must own filming equipment.'},
+  {id:10,title:'B2B Sales Manager',dept:'sales',deptLabel:'Sales & B2B',loc:'Lagos',type:'Full-time',isNew:false,desc:'Develop and manage relationships with corporate and bulk-buying clients. 3+ yrs B2B FMCG sales experience.'},
+  {id:11,title:'Customer Success Specialist',dept:'cs',deptLabel:'Customer Success',loc:'Lagos / Remote',type:'Full-time',isNew:false,desc:'Handle customer queries via WhatsApp and email. Empathetic, fast-typing, and calm under pressure. '},
+  {id:12,title:'Customer Success Team Lead',dept:'cs',deptLabel:'Customer Success',loc:'Lagos',type:'Full-time',isNew:true,desc:'Lead a team of 8 support agents. Set quality standards, resolve escalations, and report weekly. 2+ yrs team lead experience.'},
+];
+let currentJob='';
+function renderJobs(filter){
+  const list=document.getElementById('jobsList');
+  const items=filter==='all'?JOBS:JOBS.filter(j=>j.dept===filter);
+  if(!items.length){list.innerHTML='<p style="text-align:center;padding:40px;color:var(--s400);">No open roles in this area right now. Check back soon!</p>';return;}
+  list.innerHTML=items.map(j=>`<div class="job-card">
+    <div class="job-left">
+      <div class="job-title">${j.title}</div>
+      <div class="job-meta">
+        <span class="jt jt-dept">${j.deptLabel}</span>
+        <span class="jt jt-loc">📍 ${j.loc}</span>
+        <span class="jt jt-type">⏱ ${j.type}</span>
+        ${j.isNew?'<span class="jt jt-new">🆕 New</span>':''}
+      </div>
+      <div class="job-desc">${j.desc}</div>
+    </div>
+    <a href="#" class="apply-btn" onclick="event.preventDefault();openApply('${j.title}')">Apply →</a>
+  </div>`).join('');
+}
+function filterJobs(f,el){document.querySelectorAll('.jft').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderJobs(f);}
+function openApply(title){currentJob=title;document.getElementById('modalTitle').textContent='Apply: '+title;document.getElementById('applyForm').style.display='block';document.getElementById('successMsg').style.display='none';document.getElementById('applyModal').classList.add('open');}
+function closeModal(){document.getElementById('applyModal').classList.remove('open');}
+function submitApplication(){
+  const name=document.getElementById('appName').value.trim();
+  const email=document.getElementById('appEmail').value.trim();
+  const phone=document.getElementById('appPhone').value.trim();
+  const cv=document.getElementById('appCV').value.trim();
+  const why=document.getElementById('appWhy').value.trim();
+  if(!name||!email||!phone||!why){alert('Please fill in all required fields (marked with *).'); return;}
+  const subject=`Application: ${currentJob}`;
+  const body=`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nCV: ${cv||'(not provided)'}\n\nWhy VolaHub:\n${why}`;
+  window.location.href=`mailto:careers@volahub.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  document.getElementById('applyForm').style.display='none';
+  document.getElementById('successMsg').style.display='block';
+}
+renderJobs('all');
+</script>
+</body></html>
