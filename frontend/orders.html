@@ -10,114 +10,111 @@
 :root{
   --g50:#f0faf3;--g100:#d1f0da;--g200:#a3e0b6;--g400:#3db065;--g500:#2a9050;--g600:#1f7a3e;--g700:#165c2e;--g900:#061f0f;
   --gray50:#f8faf8;--gray100:#eef2ee;--gray200:#d4ddd4;--gray400:#8a9e8a;--gray600:#4a5e4a;--gray800:#1e281e;
-  --amber:#f59e0b;--red:#ef4444;--blue:#3b82f6;--purple:#7c3aed;
-  --fd:'Syne',sans-serif;--fb:'Plus Jakarta Sans',sans-serif;
-  --r:12px;--rl:20px;
+  --amber:#f59e0b;--red:#ef4444;--purple:#7c3aed;
+  --fd:'Syne',sans-serif;--fb:'Plus Jakarta Sans',sans-serif;--r:12px;--rl:20px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:var(--fb);background:var(--gray50);color:var(--gray800);}
 
-/* ── NAVBAR ── */
+/* NAV */
 .navbar{background:white;border-bottom:1px solid var(--gray100);padding:0 5%;position:sticky;top:0;z-index:200;}
 .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:66px;}
 .logo{font-family:var(--fd);font-size:26px;font-weight:800;color:var(--g600);text-decoration:none;letter-spacing:-1px;}
 .logo span{color:var(--g400);}
 .nav-right{display:flex;align-items:center;gap:10px;}
-.nav-btn{padding:8px 18px;border-radius:50px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;border:none;cursor:pointer;font-family:var(--fb);}
-.nav-btn.ghost{color:var(--gray600);border:1.5px solid var(--gray200);background:transparent;}
-.nav-btn.ghost:hover{border-color:var(--g400);color:var(--g600);}
-.nav-btn.primary{background:var(--g500);color:white;}
+.nav-btn{padding:8px 18px;border-radius:50px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;border:1.5px solid var(--gray200);background:transparent;color:var(--gray600);cursor:pointer;font-family:var(--fb);}
+.nav-btn:hover{border-color:var(--g400);color:var(--g600);}
+.nav-btn.primary{background:var(--g500);color:white;border-color:var(--g500);}
 .nav-btn.primary:hover{background:var(--g600);}
 
-/* ── PAGE HERO ── */
-.page-hero{background:linear-gradient(135deg,var(--g700) 0%,var(--g500) 100%);padding:44px 5%;position:relative;overflow:hidden;}
-.page-hero::after{content:'';position:absolute;right:-80px;top:-80px;width:280px;height:280px;background:rgba(255,255,255,.05);border-radius:50%;}
-.page-hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;}
-.page-hero h1{font-family:var(--fd);font-size:clamp(24px,3vw,36px);font-weight:800;color:white;letter-spacing:-1px;margin-bottom:6px;}
-.page-hero p{color:rgba(255,255,255,.7);font-size:14px;}
+/* PAGE HERO */
+.hero{background:linear-gradient(135deg,var(--g700) 0%,var(--g500) 100%);padding:44px 5%;position:relative;overflow:hidden;}
+.hero::after{content:'';position:absolute;right:-80px;top:-80px;width:280px;height:280px;background:rgba(255,255,255,.05);border-radius:50%;}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;}
+.hero h1{font-family:var(--fd);font-size:clamp(24px,3vw,36px);font-weight:800;color:white;letter-spacing:-1px;margin-bottom:6px;}
+.hero p{color:rgba(255,255,255,.7);font-size:14px;}
+.user-info{display:flex;align-items:center;gap:10px;margin-top:14px;}
+.user-tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);color:white;padding:5px 14px;border-radius:50px;font-size:13px;font-weight:600;}
 
-/* ── MAIN ── */
+/* MAIN */
 .main{max-width:1100px;margin:0 auto;padding:32px 5%;}
 
-/* ── TABS ── */
-.tabs-bar{display:flex;gap:4px;background:white;border:1px solid var(--gray100);border-radius:50px;padding:4px;margin-bottom:28px;width:fit-content;box-shadow:0 2px 8px rgba(0,0,0,.04);}
-.tab-btn{padding:9px 24px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;border:none;background:transparent;color:var(--gray600);font-family:var(--fb);display:flex;align-items:center;gap:6px;}
-.tab-btn.active{background:var(--g500);color:white;box-shadow:0 2px 8px rgba(42,144,80,.3);}
-.tab-btn:hover:not(.active){background:var(--g50);color:var(--g600);}
+/* TABS */
+.tabs{display:flex;gap:4px;background:white;border:1px solid var(--gray100);border-radius:50px;padding:4px;margin-bottom:28px;width:fit-content;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.tab{padding:9px 24px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--gray600);font-family:var(--fb);transition:all .2s;display:flex;align-items:center;gap:6px;}
+.tab.active{background:var(--g500);color:white;}
+.tab:hover:not(.active){background:var(--g50);color:var(--g600);}
 
-/* ── TRACK WIDGET ── */
-.track-widget{background:white;border-radius:var(--rl);border:1px solid var(--gray100);padding:32px 36px;margin-bottom:28px;}
+/* TRACK WIDGET */
+.track-widget{background:white;border-radius:var(--rl);border:1px solid var(--gray100);padding:32px;margin-bottom:28px;}
 .track-widget h2{font-family:var(--fd);font-size:20px;font-weight:800;margin-bottom:4px;}
-.track-widget .sub{font-size:13px;color:var(--gray400);margin-bottom:24px;}
+.track-sub{font-size:13px;color:var(--gray400);margin-bottom:22px;}
 .track-form{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end;}
 .fg{display:flex;flex-direction:column;gap:6px;}
 .fl{font-size:11px;font-weight:700;color:var(--gray600);text-transform:uppercase;letter-spacing:.5px;}
 .fi{padding:11px 14px;border:1.5px solid var(--gray200);border-radius:10px;font-family:var(--fb);font-size:14px;outline:none;transition:all .2s;color:var(--gray800);width:100%;}
 .fi:focus{border-color:var(--g400);box-shadow:0 0 0 3px rgba(61,176,101,.1);}
-.track-go-btn{padding:11px 28px;background:var(--g500);color:white;border:none;border-radius:10px;font-family:var(--fb);font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;white-space:nowrap;display:flex;align-items:center;gap:6px;}
-.track-go-btn:hover{background:var(--g600);transform:translateY(-1px);}
-.track-go-btn:disabled{background:var(--gray200);color:var(--gray400);cursor:not-allowed;transform:none;}
-
+.track-btn{padding:11px 26px;background:var(--g500);color:white;border:none;border-radius:10px;font-family:var(--fb);font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.track-btn:hover{background:var(--g600);}
+.track-btn:disabled{background:var(--gray200);color:var(--gray400);cursor:not-allowed;}
 .err-box{background:#fef2f2;border:1.5px solid #fca5a5;border-radius:10px;padding:12px 16px;color:#b91c1c;font-size:13px;font-weight:600;margin-top:14px;display:none;align-items:center;gap:8px;}
 .err-box.show{display:flex;}
 .track-result{margin-top:20px;display:none;}
 .track-result.show{display:block;}
 
-/* ── ORDER CARD ── */
+/* ORDER CARD */
 .order-card{background:white;border-radius:var(--rl);border:1px solid var(--gray100);margin-bottom:14px;overflow:hidden;transition:border-color .25s,box-shadow .25s;}
 .order-card:hover{border-color:var(--g200);box-shadow:0 4px 20px rgba(42,144,80,.07);}
-
 .order-top{padding:18px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;cursor:pointer;user-select:none;}
 .order-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.order-num{font-family:var(--fd);font-size:15px;font-weight:800;color:var(--gray800);}
+.order-num{font-family:var(--fd);font-size:15px;font-weight:800;}
 .order-date{font-size:12px;color:var(--gray400);margin-top:2px;}
-.order-actions{display:flex;align-items:center;gap:10px;}
+.order-right{display:flex;align-items:center;gap:10px;}
 .order-total{font-family:var(--fd);font-size:18px;font-weight:800;color:var(--g600);}
-.chevron{font-size:11px;color:var(--gray400);transition:transform .3s;margin-left:4px;}
+.chevron{font-size:11px;color:var(--gray400);transition:transform .3s;}
 .order-card.open .chevron{transform:rotate(180deg);}
 
-/* ── STATUS BADGES ── */
+/* STATUS BADGES */
 .sb{display:inline-flex;align-items:center;gap:4px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;}
-.sb-pending{background:#fef3c7;color:#b45309;}
-.sb-confirmed,.sb-processing{background:#dbeafe;color:#1d4ed8;}
-.sb-shipped{background:#ede9fe;color:var(--purple);}
-.sb-delivered{background:var(--g100);color:var(--g700);}
-.sb-cancelled{background:#fee2e2;color:#b91c1c;}
-.sb-paid{background:var(--g100);color:var(--g700);}
-.sb-unpaid{background:#fef3c7;color:#b45309;}
+.s-pending{background:#fef3c7;color:#b45309;}
+.s-confirmed,.s-processing{background:#dbeafe;color:#1d4ed8;}
+.s-shipped{background:#ede9fe;color:var(--purple);}
+.s-delivered{background:var(--g100);color:var(--g700);}
+.s-cancelled{background:#fee2e2;color:#b91c1c;}
+.s-paid{background:var(--g100);color:var(--g700);}
+.s-unpaid,.s-pending-pay{background:#fef3c7;color:#b45309;}
 
-/* ── COLLAPSIBLE BODY ── */
+/* BODY */
 .order-body{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1);}
 .order-card.open .order-body{max-height:1200px;}
 .order-body-inner{padding:0 22px 24px;}
 
-/* ── PROGRESS TRACKER ── */
-.progress-wrap{background:var(--g50);border-radius:var(--r);padding:22px 24px;margin-bottom:18px;}
-.progress-label{font-size:11px;font-weight:700;color:var(--gray600);text-transform:uppercase;letter-spacing:.5px;margin-bottom:18px;}
+/* TRACKER */
+.progress-wrap{background:var(--g50);border-radius:var(--r);padding:22px;margin-bottom:18px;}
+.progress-lbl{font-size:11px;font-weight:700;color:var(--gray600);text-transform:uppercase;letter-spacing:.5px;margin-bottom:18px;}
 .tracker{display:flex;align-items:flex-start;justify-content:space-between;position:relative;}
-.tracker-rail{position:absolute;top:13px;left:14px;right:14px;height:3px;background:var(--gray200);z-index:0;border-radius:3px;}
-.tracker-fill{position:absolute;top:13px;left:14px;height:3px;background:linear-gradient(90deg,var(--g600),var(--g400));z-index:1;border-radius:3px;transition:width .7s ease;}
-.step{display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2;flex:1;}
+.tracker-rail{position:absolute;top:13px;left:14px;right:14px;height:3px;background:var(--gray200);border-radius:3px;}
+.tracker-fill{position:absolute;top:13px;left:14px;height:3px;background:linear-gradient(90deg,var(--g600),var(--g400));border-radius:3px;transition:width .7s ease;}
+.step{display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2;flex:1;position:relative;}
 .step-dot{width:28px;height:28px;border-radius:50%;border:3px solid var(--gray200);background:white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;transition:all .35s;}
 .step-dot.done{border-color:var(--g400);background:var(--g400);color:white;}
 .step-dot.active{border-color:var(--g500);background:white;color:var(--g600);box-shadow:0 0 0 5px rgba(42,144,80,.12);}
 .step-name{font-size:10px;font-weight:700;color:var(--gray400);text-align:center;text-transform:uppercase;letter-spacing:.3px;line-height:1.3;}
 .step-name.done,.step-name.active{color:var(--g600);}
-.step-time{font-size:9px;color:var(--gray400);text-align:center;margin-top:1px;}
+.step-time{font-size:9px;color:var(--gray400);text-align:center;}
 
-/* ── DETAIL GRID ── */
+/* DETAILS */
 .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;}
 .detail-box{background:var(--gray50);border-radius:10px;padding:14px 16px;}
-.detail-box-label{font-size:10px;font-weight:700;color:var(--gray400);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
-.detail-box-val{font-size:13px;color:var(--gray800);line-height:1.6;}
-.detail-box-val strong{font-weight:700;}
+.detail-lbl{font-size:10px;font-weight:700;color:var(--gray400);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
+.detail-val{font-size:13px;color:var(--gray800);line-height:1.6;}
 
-/* ── ITEMS LIST ── */
+/* ITEMS */
 .items-wrap{margin-bottom:16px;}
-.items-label{font-size:11px;font-weight:700;color:var(--gray600);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;}
-.order-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--gray100);}
-.order-item:last-child{border-bottom:none;}
+.items-lbl{font-size:11px;font-weight:700;color:var(--gray600);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;}
+.oi{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--gray100);}
+.oi:last-child{border-bottom:none;}
 .oi-img{width:50px;height:50px;border-radius:10px;background:var(--gray50);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;overflow:hidden;border:1px solid var(--gray100);}
 .oi-img img{width:100%;height:100%;object-fit:cover;border-radius:9px;}
 .oi-info{flex:1;min-width:0;}
@@ -125,36 +122,34 @@ body{font-family:var(--fb);background:var(--gray50);color:var(--gray800);}
 .oi-qty{font-size:12px;color:var(--gray400);margin-top:2px;}
 .oi-price{font-size:14px;font-weight:800;color:var(--g600);}
 
-/* ── TOTALS ── */
+/* TOTALS */
 .totals-box{background:var(--g50);border:1px solid var(--g100);border-radius:var(--r);padding:16px 18px;margin-bottom:16px;}
 .tot-row{display:flex;justify-content:space-between;font-size:13px;padding:4px 0;color:var(--gray600);}
-.tot-row.total-row{font-size:16px;font-weight:800;color:var(--gray800);border-top:1.5px solid var(--g200);padding-top:12px;margin-top:8px;}
-.free-ship{color:var(--g500);font-weight:700;}
+.tot-row.total{font-size:16px;font-weight:800;color:var(--gray800);border-top:1.5px solid var(--g200);padding-top:12px;margin-top:8px;}
 
-/* ── HISTORY ── */
+/* HISTORY */
 .history-wrap{background:var(--gray50);border-radius:var(--r);padding:16px 18px;}
-.history-label{font-size:11px;font-weight:700;color:var(--gray600);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;}
-.history-list{display:flex;flex-direction:column;gap:0;}
-.history-item{display:flex;gap:14px;padding:8px 0;border-left:2px solid var(--gray200);padding-left:16px;margin-left:5px;position:relative;}
-.history-item::before{content:'';position:absolute;left:-5px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--gray200);}
-.history-item.latest::before{background:var(--g500);}
-.history-item.latest{border-left-color:var(--g400);}
-.h-status{font-size:12px;font-weight:700;color:var(--gray800);}
-.h-note{font-size:12px;color:var(--gray400);margin-top:1px;}
-.h-time{font-size:11px;color:var(--gray400);margin-left:auto;white-space:nowrap;padding-left:12px;}
+.history-lbl{font-size:11px;font-weight:700;color:var(--gray600);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;}
+.hi{display:flex;gap:14px;padding:8px 0;border-left:2px solid var(--gray200);padding-left:16px;margin-left:5px;position:relative;}
+.hi::before{content:'';position:absolute;left:-5px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--gray200);}
+.hi.latest::before{background:var(--g500);}
+.hi.latest{border-left-color:var(--g400);}
+.hi-status{font-size:12px;font-weight:700;color:var(--gray800);}
+.hi-note{font-size:12px;color:var(--gray400);margin-top:2px;}
+.hi-time{font-size:11px;color:var(--gray400);margin-left:auto;white-space:nowrap;padding-left:10px;}
 
-/* ── EMPTY / LOADER ── */
+/* EMPTY / LOADER */
 .loader{width:32px;height:32px;border:3px solid var(--g100);border-top-color:var(--g500);border-radius:50%;animation:spin .7s linear infinite;margin:48px auto;}
 @keyframes spin{to{transform:rotate(360deg);}}
 .empty{text-align:center;padding:80px 20px;}
 .empty-icon{font-size:56px;margin-bottom:16px;}
 .empty h3{font-family:var(--fd);font-size:20px;font-weight:800;margin-bottom:8px;}
 .empty p{font-size:14px;color:var(--gray400);margin-bottom:20px;max-width:320px;margin-left:auto;margin-right:auto;}
-.empty-btn{padding:12px 28px;background:var(--g500);color:white;border:none;border-radius:50px;font-family:var(--fb);font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;transition:background .2s;}
+.empty-btn{padding:12px 28px;background:var(--g500);color:white;border:none;border-radius:50px;font-family:var(--fb);font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;}
 .empty-btn:hover{background:var(--g600);}
 
-/* ── TOAST ── */
-.toasts{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:8px;}
+/* TOAST */
+.toast-wrap{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:8px;}
 .toast{background:var(--gray800);color:white;padding:12px 18px;border-radius:10px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(0,0,0,.25);transform:translateX(110px);opacity:0;transition:all .3s;}
 .toast.show{transform:translateX(0);opacity:1;}
 .toast.ok{border-left:3px solid var(--g400);}
@@ -163,130 +158,129 @@ body{font-family:var(--fb);background:var(--gray50);color:var(--gray800);}
 @media(max-width:680px){
   .track-form{grid-template-columns:1fr;}
   .detail-grid{grid-template-columns:1fr;}
-  .tabs-bar{width:100%;}
-  .tab-btn{flex:1;justify-content:center;}
-  .track-widget{padding:22px 20px;}
-  .order-body-inner{padding:0 16px 20px;}
+  .tabs{width:100%;}
+  .tab{flex:1;justify-content:center;}
 }
 </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar">
   <div class="nav-inner">
     <a class="logo" href="index.html">Vola<span>Hub</span></a>
     <div class="nav-right">
-      <a href="about.html" class="nav-btn ghost">About</a>
+      <a href="about.html" class="nav-btn">About</a>
       <a href="index.html" class="nav-btn primary">← Shop</a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
-<div class="page-hero">
-  <div class="page-hero-inner">
+<div class="hero">
+  <div class="hero-inner">
     <h1>📦 Orders &amp; Tracking</h1>
     <p>View your order history and track any delivery in real-time</p>
+    <div class="user-info" id="userInfo"></div>
   </div>
 </div>
 
 <div class="main">
-
-  <!-- TABS -->
-  <div class="tabs-bar">
-    <button class="tab-btn active" onclick="switchTab('orders',this)" id="tab-orders-btn">📋 My Orders</button>
-    <button class="tab-btn" onclick="switchTab('track',this)" id="tab-track-btn">🔍 Track an Order</button>
+  <div class="tabs">
+    <button class="tab active" id="tabMyOrdersBtn" onclick="switchTab('orders',this)">📋 My Orders</button>
+    <button class="tab" id="tabTrackBtn" onclick="switchTab('track',this)">🔍 Track an Order</button>
   </div>
 
-  <!-- ─── MY ORDERS TAB ─── -->
-  <div id="tab-orders">
+  <!-- MY ORDERS TAB -->
+  <div id="tabOrders">
     <div id="ordersContainer"><div class="loader"></div></div>
   </div>
 
-  <!-- ─── TRACK TAB ─── -->
-  <div id="tab-track" style="display:none;">
+  <!-- TRACK TAB -->
+  <div id="tabTrack" style="display:none;">
     <div class="track-widget">
       <h2>🔍 Track Your Order</h2>
-      <p class="sub">Enter your order number and the email you used when placing the order.</p>
+      <p class="track-sub">Enter your order number and the email you used when placing the order. No login required.</p>
       <div class="track-form">
         <div class="fg">
           <label class="fl">Order Number</label>
-          <input type="text" class="fi" id="trackNum" placeholder="e.g. VH-1234567890-0001"
-                 onkeypress="if(event.key==='Enter')trackOrder()">
+          <input type="text" class="fi" id="trackNum" placeholder="e.g. VH-1234567890-0001" onkeypress="if(event.key==='Enter')trackOrder()">
         </div>
         <div class="fg">
           <label class="fl">Email Address</label>
-          <input type="email" class="fi" id="trackEmail" placeholder="email used at checkout"
-                 onkeypress="if(event.key==='Enter')trackOrder()">
+          <input type="email" class="fi" id="trackEmail" placeholder="email used at checkout" onkeypress="if(event.key==='Enter')trackOrder()">
         </div>
-        <button class="track-go-btn" id="trackBtn" onclick="trackOrder()">
-          <span>Track</span> →
-        </button>
+        <button class="track-btn" id="trackGoBtn" onclick="trackOrder()">Track →</button>
       </div>
       <div class="err-box" id="trackErr">❌ <span id="trackErrMsg"></span></div>
       <div class="track-result" id="trackResult"></div>
     </div>
   </div>
+</div>
 
-</div><!-- /main -->
-
-<div class="toasts" id="toasts"></div>
+<div class="toast-wrap" id="toastWrap"></div>
 
 <script>
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
 const API = 'https://volahub-api.onrender.com/api';
-const token   = localStorage.getItem('volahub_token') || '';
-const me      = JSON.parse(localStorage.getItem('volahub_user') || 'null');
 
-const STEPS   = ['pending','confirmed','processing','shipped','delivered'];
-const EMOJI   = {pending:'⏳',confirmed:'✓',processing:'⚙️',shipped:'🚚',delivered:'📦',cancelled:'❌'};
-const SLABEL  = {pending:'Placed',confirmed:'Confirmed',processing:'Processing',shipped:'Shipped',delivered:'Delivered'};
+// ─── READ AUTH — supports BOTH old and new localStorage keys ─────────────────
+const token = localStorage.getItem('vh_token') || localStorage.getItem('volahub_token') || '';
+const me    = JSON.parse(
+  localStorage.getItem('vh_user') ||
+  localStorage.getItem('volahub_user') ||
+  'null'
+);
 
-// ─── TAB SWITCH ──────────────────────────────────────────────────────────────
-function switchTab(name, el){
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('tab-orders').style.display = name==='orders'?'block':'none';
-  document.getElementById('tab-track').style.display  = name==='track' ?'block':'none';
+// Normalize to new keys
+if (token) localStorage.setItem('vh_token', token);
+if (me)    localStorage.setItem('vh_user', JSON.stringify(me));
+
+// ─── CONSTS ───────────────────────────────────────────────────────────────────
+const STEPS  = ['pending','confirmed','processing','shipped','delivered'];
+const EMOJI  = {pending:'⏳',confirmed:'✓',processing:'⚙️',shipped:'🚚',delivered:'📦',cancelled:'❌'};
+const SLABEL = {pending:'Placed',confirmed:'Confirmed',processing:'Processing',shipped:'Shipped',delivered:'Delivered'};
+
+const fmt  = n => '₦' + Number(n||0).toLocaleString('en-NG');
+const fmtD = d => new Date(d).toLocaleDateString('en-NG',{day:'numeric',month:'long',year:'numeric'});
+const fmtT = d => new Date(d).toLocaleDateString('en-NG',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+const cap  = s => s ? s.charAt(0).toUpperCase()+s.slice(1) : '';
+
+// ─── SHOW LOGGED-IN USER ──────────────────────────────────────────────────────
+if (me) {
+  document.getElementById('userInfo').innerHTML =
+    `<span class="user-tag">👋 ${me.name} · ${me.email}</span>
+     <a href="index.html" onclick="localStorage.removeItem('vh_token');localStorage.removeItem('vh_user');" style="color:rgba(255,255,255,.6);font-size:12px;text-decoration:none;">Sign out</a>`;
 }
 
-// ─── HELPERS ─────────────────────────────────────────────────────────────────
-const fmt  = n => '₦' + Number(n).toLocaleString('en-NG');
-const fmtD = d => new Date(d).toLocaleDateString('en-NG',{day:'numeric',month:'short',year:'numeric'});
-const fmtT = d => new Date(d).toLocaleDateString('en-NG',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+// ─── TAB SWITCH ───────────────────────────────────────────────────────────────
+function switchTab(name, el) {
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('tabOrders').style.display = name==='orders' ? 'block' : 'none';
+  document.getElementById('tabTrack').style.display  = name==='track'  ? 'block' : 'none';
+}
 
-function cap(s){ return s ? s.charAt(0).toUpperCase()+s.slice(1) : ''; }
-
-// ─── TRACKER ─────────────────────────────────────────────────────────────────
-function buildTracker(status, history){
-  if(status==='cancelled'){
-    return `<div style="text-align:center;padding:14px 0;color:#b91c1c;font-weight:700;font-size:14px;">
-      ❌ This order was cancelled
-    </div>`;
+// ─── PROGRESS TRACKER ────────────────────────────────────────────────────────
+function buildTracker(status, history) {
+  if (status === 'cancelled') {
+    return `<div style="text-align:center;padding:16px;color:#b91c1c;font-weight:700;font-size:14px;">❌ This order was cancelled</div>`;
   }
-
   const idx  = STEPS.indexOf(status);
-  const pct  = idx<=0 ? 0 : (idx/(STEPS.length-1))*100;
+  const pct  = idx <= 0 ? 0 : (idx / (STEPS.length - 1)) * 100;
   const fill = `calc(${pct}% - 28px)`;
-
-  const getTime = s => {
-    const h = history?.find(e=>e.status===s);
-    return h ? fmtT(h.timestamp) : '';
-  };
+  const getTime = s => { const h = (history||[]).find(e => e.status === s); return h ? fmtT(h.timestamp) : ''; };
 
   return `
   <div class="progress-wrap">
-    <div class="progress-label">Delivery Progress</div>
+    <div class="progress-lbl">Delivery Progress</div>
     <div class="tracker">
       <div class="tracker-rail"></div>
       <div class="tracker-fill" style="width:${fill}"></div>
-      ${STEPS.map((s,i)=>{
+      ${STEPS.map((s,i) => {
         const done   = i < idx;
         const active = i === idx;
-        const cls    = done?'done':active?'active':'';
+        const cls    = done ? 'done' : active ? 'active' : '';
         return `<div class="step">
-          <div class="step-dot ${cls}">${done?'✓':EMOJI[s]}</div>
+          <div class="step-dot ${cls}">${done ? '✓' : EMOJI[s]}</div>
           <div class="step-name ${cls}">${SLABEL[s]}</div>
           <div class="step-time">${getTime(s)}</div>
         </div>`;
@@ -295,38 +289,36 @@ function buildTracker(status, history){
   </div>`;
 }
 
-// ─── ORDER CARD ──────────────────────────────────────────────────────────────
-function buildCard(o, startOpen=false){
+// ─── ORDER CARD ───────────────────────────────────────────────────────────────
+function buildCard(o, startOpen = false) {
   const addr  = o.shippingAddress || {};
   const date  = fmtD(o.createdAt);
   const count = o.items.length;
 
-  // items
-  const itemsHtml = o.items.map(i=>{
-    const imgSrc = i.product?.images?.[0]?.url
-      ? `${API.replace('/api','')}/uploads/products/${i.product.images[0].url.split('/').pop()}`
-      : null;
+  const itemsHtml = o.items.map(i => {
+    const rawUrl = i.product?.images?.[0]?.url || i.image || '';
+    const filename = rawUrl.split('/').pop();
+    const imgSrc = filename ? `${API.replace('/api','')}/uploads/products/${filename}` : null;
     const img = imgSrc
       ? `<img src="${imgSrc}" alt="${i.name}" onerror="this.parentElement.innerHTML='📦'">`
       : '📦';
-    return `<div class="order-item">
+    return `<div class="oi">
       <div class="oi-img">${img}</div>
       <div class="oi-info">
         <div class="oi-name">${i.name}</div>
-        <div class="oi-qty">× ${i.quantity} &nbsp;·&nbsp; ${fmt(i.price)} each</div>
+        <div class="oi-qty">× ${i.quantity} · ${fmt(i.price)} each</div>
       </div>
-      <div class="oi-price">${fmt(i.price * i.quantity)}</div>
+      <div class="oi-price">${fmt((i.price||0) * i.quantity)}</div>
     </div>`;
   }).join('');
 
-  // status history
-  const histList = [...(o.statusHistory||[])].reverse().map((h,idx)=>`
-    <div class="history-item ${idx===0?'latest':''}">
-      <div style="flex:1">
-        <div class="h-status">${EMOJI[h.status]||'📋'} ${cap(h.status)}</div>
-        ${h.note?`<div class="h-note">${h.note}</div>`:''}
+  const histHtml = [...(o.statusHistory||[])].reverse().map((h,idx) => `
+    <div class="hi ${idx===0?'latest':''}">
+      <div style="flex:1;">
+        <div class="hi-status">${EMOJI[h.status]||'📋'} ${cap(h.status)}</div>
+        ${h.note ? `<div class="hi-note">${h.note}</div>` : ''}
       </div>
-      <div class="h-time">${fmtT(h.timestamp)}</div>
+      <div class="hi-time">${fmtT(h.timestamp)}</div>
     </div>`).join('');
 
   return `
@@ -335,185 +327,192 @@ function buildCard(o, startOpen=false){
       <div class="order-meta">
         <div>
           <div class="order-num">#${o.orderNumber}</div>
-          <div class="order-date">${date} &nbsp;·&nbsp; ${count} item${count>1?'s':''}</div>
+          <div class="order-date">${date} · ${count} item${count>1?'s':''}</div>
         </div>
-        <span class="sb sb-${o.status}">${EMOJI[o.status]} ${cap(o.status)}</span>
+        <span class="sb s-${o.status}">${EMOJI[o.status]} ${cap(o.status)}</span>
       </div>
-      <div class="order-actions">
-        <div class="order-total">${fmt(o.pricing.total)}</div>
+      <div class="order-right">
+        <div class="order-total">${fmt(o.pricing?.total)}</div>
         <span class="chevron">▼</span>
       </div>
     </div>
-
     <div class="order-body">
       <div class="order-body-inner">
-
         ${buildTracker(o.status, o.statusHistory)}
-
         <div class="detail-grid">
           <div class="detail-box">
-            <div class="detail-box-label">📍 Delivering To</div>
-            <div class="detail-box-val">
-              <strong>${addr.fullName||me?.name||'-'}</strong><br>
+            <div class="detail-lbl">📍 Delivering To</div>
+            <div class="detail-val">
+              <strong>${addr.fullName || me?.name || '-'}</strong><br>
               ${addr.street||''}<br>
               ${addr.city||''}, ${addr.state||''}<br>
-              ${addr.phone||''}
+              <span style="color:var(--gray400);">${addr.phone||''}</span>
             </div>
           </div>
           <div class="detail-box">
-            <div class="detail-box-label">💳 Payment</div>
-            <div class="detail-box-val">
+            <div class="detail-lbl">💳 Payment</div>
+            <div class="detail-val">
               <strong>${cap(o.paymentMethod)||'-'}</strong><br>
-              <span class="sb sb-${o.paymentStatus}" style="margin-top:6px;display:inline-flex;">
-                ${cap(o.paymentStatus)}
-              </span>
+              <span class="sb s-${o.paymentStatus}" style="margin-top:6px;display:inline-flex;">${cap(o.paymentStatus)}</span>
             </div>
           </div>
         </div>
-
         <div class="items-wrap">
-          <div class="items-label">Order Items</div>
+          <div class="items-lbl">Order Items</div>
           ${itemsHtml}
         </div>
-
         <div class="totals-box">
-          <div class="tot-row"><span>Subtotal</span><span>${fmt(o.pricing.subtotal)}</span></div>
-          <div class="tot-row">
-            <span>Shipping</span>
-            <span>${o.pricing.shipping===0
-              ? '<span class="free-ship">FREE</span>'
-              : fmt(o.pricing.shipping)}</span>
-          </div>
-          <div class="tot-row"><span>VAT (7.5%)</span><span>${fmt(o.pricing.tax)}</span></div>
-          <div class="tot-row total-row"><span>Total</span><span>${fmt(o.pricing.total)}</span></div>
+          <div class="tot-row"><span>Subtotal</span><span>${fmt(o.pricing?.subtotal)}</span></div>
+          <div class="tot-row"><span>Shipping</span><span>${o.pricing?.shipping===0?'<span style="color:var(--g500);font-weight:700;">FREE</span>':fmt(o.pricing?.shipping)}</span></div>
+          <div class="tot-row"><span>VAT (7.5%)</span><span>${fmt(o.pricing?.tax)}</span></div>
+          <div class="tot-row total"><span>Total</span><span>${fmt(o.pricing?.total)}</span></div>
         </div>
-
-        ${histList ? `
-        <div class="history-wrap">
-          <div class="history-label">Status History</div>
-          <div class="history-list">${histList}</div>
-        </div>` : ''}
-
+        ${histHtml ? `<div class="history-wrap"><div class="history-lbl">Status History</div>${histHtml}</div>` : ''}
       </div>
     </div>
   </div>`;
 }
 
-function toggleCard(id){
+function toggleCard(id) {
   document.getElementById('oc-'+id)?.classList.toggle('open');
 }
 
-// ─── LOAD MY ORDERS ──────────────────────────────────────────────────────────
-async function loadMyOrders(){
+// ─── LOAD MY ORDERS ───────────────────────────────────────────────────────────
+async function loadMyOrders() {
   const container = document.getElementById('ordersContainer');
 
-  if(!me){
+  if (!me || !token) {
     container.innerHTML = `
       <div class="empty">
         <div class="empty-icon">🔐</div>
-        <h3>Sign in to view your orders</h3>
-        <p>You need to be logged in to see your order history and track deliveries.</p>
-        <a class="empty-btn" href="index.html">Go to Store →</a>
+        <h3>You're not signed in</h3>
+        <p>Sign in to see your order history, or use the Track tab to find a specific order by order number.</p>
+        <a class="empty-btn" href="index.html">Go to Store & Sign In →</a>
       </div>`;
     return;
   }
 
-  try {
-    const res  = await fetch(`${API}/orders/my-orders`, { headers:{Authorization:`Bearer ${token}`} });
-    const data = await res.json();
+  container.innerHTML = '<div class="loader"></div>';
 
-    if(!data.success || !data.data.length){
+  try {
+    const res  = await fetch(`${API}/orders/my-orders`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+
+    // Handle non-JSON responses (e.g. 401, 500)
+    const text = await res.text();
+    let data;
+    try { data = JSON.parse(text); }
+    catch { throw new Error(`Server returned: ${text.substring(0,100)}`); }
+
+    if (res.status === 401) {
+      // Token expired — clear and show message
+      localStorage.removeItem('vh_token');
+      localStorage.removeItem('vh_user');
+      container.innerHTML = `
+        <div class="empty">
+          <div class="empty-icon">🔐</div>
+          <h3>Session expired</h3>
+          <p>Your login session has expired. Please sign in again.</p>
+          <a class="empty-btn" href="index.html">Sign In Again →</a>
+        </div>`;
+      return;
+    }
+
+    if (!data.success || !data.data.length) {
       container.innerHTML = `
         <div class="empty">
           <div class="empty-icon">🛍️</div>
           <h3>No orders yet</h3>
-          <p>You haven't placed any orders. Start shopping and your orders will appear here!</p>
+          <p>You haven't placed any orders yet. Start shopping to see them here!</p>
           <a class="empty-btn" href="index.html">Shop Now →</a>
         </div>`;
       return;
     }
 
-    container.innerHTML = data.data.map((o,i)=>buildCard(o, i===0)).join('');
-  } catch(err){
+    container.innerHTML = data.data.map((o, i) => buildCard(o, i === 0)).join('');
+
+  } catch (err) {
+    console.error('Orders load error:', err);
     container.innerHTML = `
       <div class="empty">
         <div class="empty-icon">⚠️</div>
         <h3>Could not load orders</h3>
-        <p>Check your connection and try again.</p>
+        <p>${err.message || 'Check your connection and try again.'}</p>
         <button class="empty-btn" onclick="loadMyOrders()">Retry</button>
       </div>`;
   }
 }
 
-// ─── TRACK ORDER ─────────────────────────────────────────────────────────────
-async function trackOrder(){
+// ─── TRACK ORDER (public) ────────────────────────────────────────────────────
+async function trackOrder() {
   const num    = document.getElementById('trackNum').value.trim();
   const email  = document.getElementById('trackEmail').value.trim();
   const errBox = document.getElementById('trackErr');
   const errMsg = document.getElementById('trackErrMsg');
   const result = document.getElementById('trackResult');
-  const btn    = document.getElementById('trackBtn');
+  const btn    = document.getElementById('trackGoBtn');
 
   errBox.classList.remove('show');
   result.classList.remove('show');
   result.innerHTML = '';
 
-  if(!num || !email){
+  if (!num || !email) {
     errMsg.textContent = 'Please enter both your order number and email address.';
     errBox.classList.add('show');
     return;
   }
 
+  btn.textContent = 'Searching...';
   btn.disabled = true;
-  btn.innerHTML = '<span>Searching...</span>';
 
   try {
     const res  = await fetch(`${API}/orders/track`, {
       method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({orderNumber: num, email})
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ orderNumber: num, email })
     });
     const data = await res.json();
 
-    if(data.success){
+    if (data.success) {
       result.innerHTML = buildCard(data.data, true);
       result.classList.add('show');
-      result.scrollIntoView({behavior:'smooth', block:'nearest'});
+      result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       toast('Order found! ✅', 'ok');
     } else {
       errMsg.textContent = data.message || 'Order not found. Please check your details.';
       errBox.classList.add('show');
     }
-  } catch(e){
+  } catch {
     errMsg.textContent = 'Network error. Please try again.';
     errBox.classList.add('show');
   } finally {
+    btn.textContent = 'Track →';
     btn.disabled = false;
-    btn.innerHTML = '<span>Track</span> →';
   }
 }
 
-// ─── TOAST ───────────────────────────────────────────────────────────────────
-function toast(msg, type='ok'){
-  const c = document.getElementById('toasts');
-  const t = document.createElement('div');
-  t.className = `toast ${type}`;
-  t.textContent = msg;
-  c.appendChild(t);
-  setTimeout(()=>t.classList.add('show'), 10);
-  setTimeout(()=>{ t.classList.remove('show'); setTimeout(()=>t.remove(),400); }, 3500);
+// ─── TOAST ────────────────────────────────────────────────────────────────────
+function toast(msg, type = 'ok') {
+  const wrap = document.getElementById('toastWrap');
+  const el = document.createElement('div');
+  el.className = `toast ${type}`;
+  el.textContent = msg;
+  wrap.appendChild(el);
+  requestAnimationFrame(() => { requestAnimationFrame(() => el.classList.add('show')); });
+  setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 400); }, 3500);
 }
 
 // ─── INIT ────────────────────────────────────────────────────────────────────
 loadMyOrders();
 
-// Support ?track=ORDER_NUM&email=EMAIL in URL (from checkout redirect)
+// Support ?track=ORDER_NUM&email=EMAIL in URL
 const p = new URLSearchParams(location.search);
-if(p.get('track')){
-  switchTab('track', document.getElementById('tab-track-btn'));
-  document.getElementById('trackNum').value   = p.get('track');
-  document.getElementById('trackEmail').value = p.get('email')||'';
-  if(p.get('email')) trackOrder();
+if (p.get('track')) {
+  switchTab('track', document.getElementById('tabTrackBtn'));
+  document.getElementById('trackNum').value   = p.get('track') || '';
+  document.getElementById('trackEmail').value = p.get('email') || '';
+  if (p.get('email')) trackOrder();
 }
 </script>
 </body>
