@@ -214,6 +214,11 @@ body{font-family:var(--fb);background:var(--gray50);color:var(--gray800);overflo
   .form-row{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr 1fr;}
 }
+  @media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+}
 @media(max-width:480px){
   .hero{padding:50px 5% 60px;}
   .promo{flex-direction:column;align-items:flex-start;}
